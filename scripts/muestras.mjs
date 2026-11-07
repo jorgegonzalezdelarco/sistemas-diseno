@@ -6,12 +6,20 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 const variables = (texto) =>
   Object.fromEntries([...texto.matchAll(/--([a-z0-9-]+):\s*([^;]+);/g)].map((m) => [m[1], m[2].trim()]));
 
+// Textos de ejemplo de cada tema, para que las piezas se parezcan a su web.
+const EJEMPLOS = {
+  "vida-de-jorge": { frase: "Analíticas, suplementos y medidas", rotulo: "Lípidos", titulo: "Colesterol LDL", cifra: "104", unidad: "mg/dL", nota: "21 sep 2026 · −14 respecto al anterior", aviso: "⚠ Fecha aproximada: el informe no la indica.", etiquetas: ["Guía clínica", "Riesgo bajo"] },
+  finanzas: { frase: "Presupuesto, cuentas y movimientos", rotulo: "Gastos del mes", titulo: "Supermercado", cifra: "412,30", unidad: "€", nota: "Octubre · 38 € menos que en septiembre", aviso: "⚠ Te quedan 87 € de presupuesto en esta categoría.", etiquetas: ["Variable", "Dentro del presupuesto"] },
+};
+const familia = (valor) => valor.split(",")[0].replaceAll('"', "").trim();
+
 for (const fichero of readdirSync("build").filter((f) => f.endsWith(".css"))) {
   const tema = fichero.replace(/\.css$/, "");
   const css = readFileSync(`build/${fichero}`, "utf8");
   const claro = variables(css.split(":root {")[1].split("}")[0]);
   const oscuro = variables(css.split(':root[data-theme="dark"] {')[1].split("}")[0]);
   const colores = Object.keys(oscuro);
+  const x = EJEMPLOS[tema] ?? EJEMPLOS["vida-de-jorge"];
   const decl = (v) => Object.entries(v).map(([k, x]) => `--${k}: ${x};`).join(" ");
 
   const muestra = (nombre, valor) => `
@@ -36,15 +44,15 @@ for (const fichero of readdirSync("build").filter((f) => f.endsWith(".css"))) {
       </div>
       <div class="fila">
         <div class="tarjeta">
-          <p class="rotulo">Lípidos</p>
-          <p class="titular grande">Colesterol LDL</p>
-          <p><span class="cifra enorme">104</span> <span class="tenue">mg/dL</span></p>
-          <p class="tenue pequeno">21 sep 2026 · −14 respecto al anterior</p>
+          <p class="rotulo">${x.rotulo}</p>
+          <p class="titular grande">${x.titulo}</p>
+          <p><span class="cifra enorme">${x.cifra}</span> <span class="tenue">${x.unidad}</span></p>
+          <p class="tenue pequeno">${x.nota}</p>
         </div>
         <div class="tarjeta">
-          <p class="aviso">⚠ Fecha aproximada: el informe no la indica.</p>
+          <p class="aviso">${x.aviso}</p>
           <p class="pequeno">Información general, no sustituye a tu médico.</p>
-          <div class="fila"><span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Riesgo bajo</span></div>
+          <div class="fila"><span class="etiqueta">${x.etiquetas[0]}</span><span class="etiqueta acento">${x.etiquetas[1]}</span></div>
         </div>
       </div>
     </section>`;
@@ -118,12 +126,12 @@ for (const fichero of readdirSync("build").filter((f) => f.endsWith(".css"))) {
   <section class="panel claro">
     <h2 class="rotulo">Tipografía</h2>
     <div class="tipos">
-      <div><p class="rotulo">Titulares</p><p class="titular" style="font-size: 40px">Newsreader</p><p class="tenue pequeno">${claro["fuente-titulares"]}</p></div>
-      <div><p class="rotulo">Texto</p><p style="font-size: 32px">IBM Plex Sans</p><p class="tenue pequeno">${claro["fuente-texto"]}</p></div>
+      <div><p class="rotulo">Titulares</p><p class="titular" style="font-size: 40px">${familia(claro["fuente-titulares"])}</p><p class="tenue pequeno">${claro["fuente-titulares"]}</p></div>
+      <div><p class="rotulo">Texto</p><p style="font-size: 32px">${familia(claro["fuente-texto"])}</p><p class="tenue pequeno">${claro["fuente-texto"]}</p></div>
       <div><p class="rotulo">Cifras</p><p class="cifra" style="font-size: 32px">0123456789</p><p class="tenue pequeno">${claro["fuente-cifras"]}</p></div>
     </div>
     <div class="escala">${["4xl", "3xl", "2xl", "xl", "lg", "base", "sm", "xs"].map((t) => `
-      <p style="font-size: var(--texto-${t})"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-${t} · ${claro[`texto-${t}`]}</span>Analíticas, suplementos y medidas</p>`).join("")}
+      <p style="font-size: var(--texto-${t})"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-${t} · ${claro[`texto-${t}`]}</span>${x.frase}</p>`).join("")}
     </div>
   </section>
 

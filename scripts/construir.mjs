@@ -30,7 +30,8 @@ function aCss(valor, tipo, tokens) {
     return aCss(ref.valor, ref.tipo, tokens);
   }
   if (tipo === "color") {
-    if (valor.colorSpace !== "oklch") throw new Error("Solo se admite oklch");
+    if (valor.colorSpace === "srgb" && valor.hex) return valor.hex;
+    if (valor.colorSpace !== "oklch") throw new Error("Solo se admite oklch o srgb con hex");
     const [l, c, h] = valor.components;
     const alfa = valor.alpha !== undefined && valor.alpha !== 1 ? ` / ${Math.round(valor.alpha * 100)}%` : "";
     return `oklch(${l} ${c} ${h}${alfa})`;
@@ -64,6 +65,8 @@ for (const tema of readdirSync("tokens/temas")) {
   const claro = aplanar(JSON.parse(readFileSync(join(carpeta, "claro.tokens.json"), "utf8")));
   const oscuro = aplanar(JSON.parse(readFileSync(join(carpeta, "oscuro.tokens.json"), "utf8")));
   const todos = new Map([...base, ...comun, ...claro]);
+  // En oscuro, las referencias apuntan a los valores oscuros.
+  const todosOscuro = new Map([...todos, ...oscuro]);
 
   const faltan = [...claro.keys()].filter((k) => !oscuro.has(k));
   if (faltan.length) throw new Error(`${tema}: sin modo oscuro para ${faltan.join(", ")}`);
@@ -71,8 +74,8 @@ for (const tema of readdirSync("tokens/temas")) {
   const css = [
     `/* Tema ${tema}. Generado por scripts/construir.mjs desde tokens/: no editar a mano. */`,
     bloque(":root", new Map([...base, ...comun, ...claro]), todos),
-    `@media (prefers-color-scheme: dark) {\n${bloque(":root:not([data-theme=\"light\"])", oscuro, todos).replace(/^/gm, "  ")}\n}`,
-    bloque(':root[data-theme="dark"]', oscuro, todos),
+    `@media (prefers-color-scheme: dark) {\n${bloque(":root:not([data-theme=\"light\"])", oscuro, todosOscuro).replace(/^/gm, "  ")}\n}`,
+    bloque(':root[data-theme="dark"]', oscuro, todosOscuro),
     "",
   ].join("\n\n");
   writeFileSync(join("build", `${tema}.css`), css);

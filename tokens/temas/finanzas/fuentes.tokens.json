@@ -1,0 +1,30 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "$description": "Finanzas usa una sola familia, IBM Plex Sans, también en títulos y cifras (con cifras tabulares).",
+    "titulares": {
+      "$value": [
+        "IBM Plex Sans",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "IBM Plex Sans",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "IBM Plex Sans",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif"
+      ]
+    }
+  }
+}

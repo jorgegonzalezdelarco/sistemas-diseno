@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muestras · finanzas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz@6..72&display=swap">
+<style>
+  :root, .claro { --espacio-1: 0.25rem; --espacio-2: 0.5rem; --espacio-3: 0.75rem; --espacio-4: 1rem; --espacio-6: 1.5rem; --espacio-8: 2rem; --espacio-12: 3rem; --espacio-16: 4rem; --radius: 0.625rem; --texto-xs: 0.75rem; --texto-sm: 0.875rem; --texto-base: 1rem; --texto-lg: 1.25rem; --texto-xl: 1.563rem; --texto-2xl: 1.953rem; --texto-3xl: 2.441rem; --texto-4xl: 3.052rem; --fuente-titulares: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --fuente-texto: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --fuente-cifras: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --background: #f4f2ec; --foreground: #1b1f1c; --card: #fffdf8; --card-foreground: #1b1f1c; --popover: #fffdf8; --popover-foreground: #1b1f1c; --primary: #0e6b55; --primary-foreground: #ffffff; --secondary: #f0ede5; --secondary-foreground: #1b1f1c; --muted: #f0ede5; --muted-foreground: #64665e; --accent: #d9ece4; --accent-foreground: #1b1f1c; --destructive: #d2483b; --border: #e2ddd1; --input: #cfc8b8; --ring: #0e6b55; --aviso: #6d4a00; --chart-1: #2a78d6; --chart-2: #eb6834; --chart-3: #1baf7a; --chart-4: #eda100; --chart-5: #e87ba4; --fondo: #f4f2ec; --superficie: #fffdf8; --superficie-2: #f0ede5; --superficie-3: #e7e3d8; --borde: #e2ddd1; --borde-fuerte: #cfc8b8; --ventana: #fffdf8; --ventana-borde: #bdb5a2; --tinta: #1b1f1c; --tinta-2: #565b55; --tenue: #64665e; --acento: #0e6b55; --acento-tinta: #ffffff; --acento-suave: #d9ece4; --boton-1-a: #0f7a63; --boton-1-b: #0a5443; --boton-2-a: #3c7d2e; --boton-2-b: #2a5a20; --boton-3-a: #55655d; --boton-3-b: #3d4a43; --boton-4-a: #2d3430; --boton-4-b: #171b19; --boton-tinta: #ffffff; --lateral: #13201b; --lateral-2: #1b2b24; --lateral-tinta: #e8ece6; --lateral-tenue: #8fa198; --lateral-activo: #24392f; --ok-fondo: #d3ecc9; --ok-tinta: #1e5a17; --ok-barra: #4f9a3a; --aviso-fondo: #f8e3a6; --aviso-tinta: #6d4a00; --aviso-barra: #d29a12; --mal-fondo: #f8d2cc; --mal-tinta: #8e1f15; --mal-barra: #d2483b; --cero-fondo: #ebe8df; --cero-tinta: #676961; --positivo: #1f6b2a; --negativo: #b42f23; --serie-1: #2a78d6; --serie-2: #eb6834; --serie-3: #1baf7a; --serie-4: #eda100; --serie-5: #e87ba4; --serie-6: #008300; --serie-7: #6250d6; --serie-8: #e34948; --serie-resto: #b9b5a8; --rejilla: #e6e2d7; --eje: #c9c3b4; }
+  .oscuro { --espacio-1: 0.25rem; --espacio-2: 0.5rem; --espacio-3: 0.75rem; --espacio-4: 1rem; --espacio-6: 1.5rem; --espacio-8: 2rem; --espacio-12: 3rem; --espacio-16: 4rem; --radius: 0.625rem; --texto-xs: 0.75rem; --texto-sm: 0.875rem; --texto-base: 1rem; --texto-lg: 1.25rem; --texto-xl: 1.563rem; --texto-2xl: 1.953rem; --texto-3xl: 2.441rem; --texto-4xl: 3.052rem; --fuente-titulares: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --fuente-texto: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --fuente-cifras: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; --background: #f4f2ec; --foreground: #1b1f1c; --card: #fffdf8; --card-foreground: #1b1f1c; --popover: #fffdf8; --popover-foreground: #1b1f1c; --primary: #0e6b55; --primary-foreground: #ffffff; --secondary: #f0ede5; --secondary-foreground: #1b1f1c; --muted: #f0ede5; --muted-foreground: #64665e; --accent: #d9ece4; --accent-foreground: #1b1f1c; --destructive: #d2483b; --border: #e2ddd1; --input: #cfc8b8; --ring: #0e6b55; --aviso: #6d4a00; --chart-1: #2a78d6; --chart-2: #eb6834; --chart-3: #1baf7a; --chart-4: #eda100; --chart-5: #e87ba4; --fondo: #f4f2ec; --superficie: #fffdf8; --superficie-2: #f0ede5; --superficie-3: #e7e3d8; --borde: #e2ddd1; --borde-fuerte: #cfc8b8; --ventana: #fffdf8; --ventana-borde: #bdb5a2; --tinta: #1b1f1c; --tinta-2: #565b55; --tenue: #64665e; --acento: #0e6b55; --acento-tinta: #ffffff; --acento-suave: #d9ece4; --boton-1-a: #0f7a63; --boton-1-b: #0a5443; --boton-2-a: #3c7d2e; --boton-2-b: #2a5a20; --boton-3-a: #55655d; --boton-3-b: #3d4a43; --boton-4-a: #2d3430; --boton-4-b: #171b19; --boton-tinta: #ffffff; --lateral: #13201b; --lateral-2: #1b2b24; --lateral-tinta: #e8ece6; --lateral-tenue: #8fa198; --lateral-activo: #24392f; --ok-fondo: #d3ecc9; --ok-tinta: #1e5a17; --ok-barra: #4f9a3a; --aviso-fondo: #f8e3a6; --aviso-tinta: #6d4a00; --aviso-barra: #d29a12; --mal-fondo: #f8d2cc; --mal-tinta: #8e1f15; --mal-barra: #d2483b; --cero-fondo: #ebe8df; --cero-tinta: #676961; --positivo: #1f6b2a; --negativo: #b42f23; --serie-1: #2a78d6; --serie-2: #eb6834; --serie-3: #1baf7a; --serie-4: #eda100; --serie-5: #e87ba4; --serie-6: #008300; --serie-7: #6250d6; --serie-8: #e34948; --serie-resto: #b9b5a8; --rejilla: #e6e2d7; --eje: #c9c3b4; --background: #0e1210; --foreground: #ebeae4; --card: #151a17; --card-foreground: #ebeae4; --popover: #29332d; --popover-foreground: #ebeae4; --primary: #4cc3a0; --primary-foreground: #06130e; --secondary: #1b221e; --secondary-foreground: #ebeae4; --muted: #1b221e; --muted-foreground: #848981; --accent: #173a2f; --accent-foreground: #ebeae4; --destructive: #e2574a; --border: #29312c; --input: #3a443e; --ring: #4cc3a0; --aviso: #f2cf6c; --chart-1: #3987e5; --chart-2: #d95926; --chart-3: #199e70; --chart-4: #c98500; --chart-5: #d55181; --fondo: #0e1210; --superficie: #151a17; --superficie-2: #1b221e; --superficie-3: #242c27; --borde: #29312c; --borde-fuerte: #3a443e; --ventana: #29332d; --ventana-borde: #66756b; --tinta: #ebeae4; --tinta-2: #b3b6ae; --tenue: #848981; --acento: #4cc3a0; --acento-tinta: #06130e; --acento-suave: #173a2f; --boton-1-a: #4cc3a0; --boton-1-b: #34a888; --boton-2-a: #9ad474; --boton-2-b: #78b655; --boton-3-a: #b3beb7; --boton-3-b: #94a19a; --boton-4-a: #e6e9e4; --boton-4-b: #c9cec8; --boton-tinta: #06130e; --lateral: #0a0e0c; --lateral-2: #121815; --lateral-tinta: #e3e7e1; --lateral-tenue: #7f8f87; --lateral-activo: #1b2a23; --ok-fondo: #1e3a1c; --ok-tinta: #a6dd93; --ok-barra: #5fae48; --aviso-fondo: #3d3110; --aviso-tinta: #f2cf6c; --aviso-barra: #d7a21f; --mal-fondo: #4a1d18; --mal-tinta: #ffaea3; --mal-barra: #e2574a; --cero-fondo: #232a26; --cero-tinta: #8d928a; --positivo: #6cc46a; --negativo: #f07a6c; --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70; --serie-4: #c98500; --serie-5: #d55181; --serie-6: #4db54d; --serie-7: #9085e9; --serie-8: #e66767; --serie-resto: #4a504b; --rejilla: #232a26; --eje: #39423c; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: var(--fuente-texto); background: #e9e6e0; padding: 40px; }
+  .hoja { width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+  .panel { background: var(--background); color: var(--foreground); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+  .titular { font-family: var(--fuente-titulares); font-weight: 400; letter-spacing: -0.015em; }
+  .cifra { font-family: var(--fuente-cifras); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .rotulo { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 500; }
+  .tenue { color: var(--muted-foreground); }
+  .pequeno { font-size: 13px; }
+  .grande { font-size: 28px; }
+  .enorme { font-size: 56px; line-height: 1; }
+  .rejilla { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .color { display: flex; flex-direction: column; gap: 6px; }
+  .pastilla { height: 64px; border-radius: var(--radius); border: 1px solid var(--border); }
+  .nombre { font-size: 13px; font-weight: 600; }
+  .valor { font-family: var(--fuente-cifras); font-size: 11px; color: var(--muted-foreground); }
+  .fila { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .boton { font: 500 14px var(--fuente-texto); height: 44px; padding: 0 20px; border-radius: var(--radius); border: 1px solid transparent; }
+  .primario { background: var(--primary); color: var(--primary-foreground); }
+  .secundario { background: var(--secondary); color: var(--secondary-foreground); }
+  .contorno { background: var(--card); color: var(--foreground); border-color: var(--border); }
+  .peligro { background: var(--destructive); color: white; }
+  .campo { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; width: 280px; }
+  .entrada { height: 44px; display: flex; align-items: center; padding: 0 12px; background: var(--card); border: 1px solid var(--input); border-radius: var(--radius); font-weight: 400; }
+  .foco { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 30%, transparent); }
+  .tarjeta { background: var(--card); color: var(--card-foreground); border: 1px solid var(--border); border-radius: calc(var(--radius) * 1.4); padding: 20px; width: 360px; display: flex; flex-direction: column; gap: 8px; }
+  .aviso { color: var(--aviso); font-size: 14px; font-weight: 500; }
+  .etiqueta { display: inline-block; align-self: flex-start; font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--muted); color: var(--muted-foreground); }
+  .etiqueta.acento { background: var(--accent); color: var(--accent-foreground); }
+  .tipos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .escala { display: flex; flex-direction: column; gap: 8px; }
+  .radios, .espacios { display: flex; gap: 24px; align-items: flex-end; }
+  .radio { width: 72px; height: 72px; background: var(--accent); border: 1px solid var(--border); }
+  .espacio { background: var(--primary); height: 16px; }
+</style>
+</head>
+<body>
+<main class="hoja">
+  <section class="panel claro">
+    <p class="rotulo">Sistemas de diseño · tema</p>
+    <h1 class="titular" style="font-size: 56px">finanzas</h1>
+    <p class="tenue">Generado desde los tokens del repo sistemas-diseno. Para aprobar o descartar: dile a Claude qué cambiarías.</p>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Colores · modo claro</h2>
+    <div class="rejilla">
+        <div class="color">
+          <div class="pastilla" style="background: var(--background)"></div>
+          <p class="nombre">background</p>
+          <p class="valor">#f4f2ec</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--foreground)"></div>
+          <p class="nombre">foreground</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card)"></div>
+          <p class="nombre">card</p>
+          <p class="valor">#fffdf8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card-foreground)"></div>
+          <p class="nombre">card-foreground</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover)"></div>
+          <p class="nombre">popover</p>
+          <p class="valor">#fffdf8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover-foreground)"></div>
+          <p class="nombre">popover-foreground</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary)"></div>
+          <p class="nombre">primary</p>
+          <p class="valor">#0e6b55</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary-foreground)"></div>
+          <p class="nombre">primary-foreground</p>
+          <p class="valor">#ffffff</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary)"></div>
+          <p class="nombre">secondary</p>
+          <p class="valor">#f0ede5</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary-foreground)"></div>
+          <p class="nombre">secondary-foreground</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted)"></div>
+          <p class="nombre">muted</p>
+          <p class="valor">#f0ede5</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted-foreground)"></div>
+          <p class="nombre">muted-foreground</p>
+          <p class="valor">#64665e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent)"></div>
+          <p class="nombre">accent</p>
+          <p class="valor">#d9ece4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent-foreground)"></div>
+          <p class="nombre">accent-foreground</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--destructive)"></div>
+          <p class="nombre">destructive</p>
+          <p class="valor">#d2483b</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--border)"></div>
+          <p class="nombre">border</p>
+          <p class="valor">#e2ddd1</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--input)"></div>
+          <p class="nombre">input</p>
+          <p class="valor">#cfc8b8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ring)"></div>
+          <p class="nombre">ring</p>
+          <p class="valor">#0e6b55</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso)"></div>
+          <p class="nombre">aviso</p>
+          <p class="valor">#6d4a00</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-1)"></div>
+          <p class="nombre">chart-1</p>
+          <p class="valor">#2a78d6</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-2)"></div>
+          <p class="nombre">chart-2</p>
+          <p class="valor">#eb6834</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-3)"></div>
+          <p class="nombre">chart-3</p>
+          <p class="valor">#1baf7a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-4)"></div>
+          <p class="nombre">chart-4</p>
+          <p class="valor">#eda100</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-5)"></div>
+          <p class="nombre">chart-5</p>
+          <p class="valor">#e87ba4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--fondo)"></div>
+          <p class="nombre">fondo</p>
+          <p class="valor">#f4f2ec</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie)"></div>
+          <p class="nombre">superficie</p>
+          <p class="valor">#fffdf8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie-2)"></div>
+          <p class="nombre">superficie-2</p>
+          <p class="valor">#f0ede5</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie-3)"></div>
+          <p class="nombre">superficie-3</p>
+          <p class="valor">#e7e3d8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--borde)"></div>
+          <p class="nombre">borde</p>
+          <p class="valor">#e2ddd1</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--borde-fuerte)"></div>
+          <p class="nombre">borde-fuerte</p>
+          <p class="valor">#cfc8b8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ventana)"></div>
+          <p class="nombre">ventana</p>
+          <p class="valor">#fffdf8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ventana-borde)"></div>
+          <p class="nombre">ventana-borde</p>
+          <p class="valor">#bdb5a2</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tinta)"></div>
+          <p class="nombre">tinta</p>
+          <p class="valor">#1b1f1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tinta-2)"></div>
+          <p class="nombre">tinta-2</p>
+          <p class="valor">#565b55</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tenue)"></div>
+          <p class="nombre">tenue</p>
+          <p class="valor">#64665e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento)"></div>
+          <p class="nombre">acento</p>
+          <p class="valor">#0e6b55</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento-tinta)"></div>
+          <p class="nombre">acento-tinta</p>
+          <p class="valor">#ffffff</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento-suave)"></div>
+          <p class="nombre">acento-suave</p>
+          <p class="valor">#d9ece4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-1-a)"></div>
+          <p class="nombre">boton-1-a</p>
+          <p class="valor">#0f7a63</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-1-b)"></div>
+          <p class="nombre">boton-1-b</p>
+          <p class="valor">#0a5443</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-2-a)"></div>
+          <p class="nombre">boton-2-a</p>
+          <p class="valor">#3c7d2e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-2-b)"></div>
+          <p class="nombre">boton-2-b</p>
+          <p class="valor">#2a5a20</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-3-a)"></div>
+          <p class="nombre">boton-3-a</p>
+          <p class="valor">#55655d</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-3-b)"></div>
+          <p class="nombre">boton-3-b</p>
+          <p class="valor">#3d4a43</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-4-a)"></div>
+          <p class="nombre">boton-4-a</p>
+          <p class="valor">#2d3430</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-4-b)"></div>
+          <p class="nombre">boton-4-b</p>
+          <p class="valor">#171b19</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-tinta)"></div>
+          <p class="nombre">boton-tinta</p>
+          <p class="valor">#ffffff</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral)"></div>
+          <p class="nombre">lateral</p>
+          <p class="valor">#13201b</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-2)"></div>
+          <p class="nombre">lateral-2</p>
+          <p class="valor">#1b2b24</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-tinta)"></div>
+          <p class="nombre">lateral-tinta</p>
+          <p class="valor">#e8ece6</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-tenue)"></div>
+          <p class="nombre">lateral-tenue</p>
+          <p class="valor">#8fa198</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-activo)"></div>
+          <p class="nombre">lateral-activo</p>
+          <p class="valor">#24392f</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-fondo)"></div>
+          <p class="nombre">ok-fondo</p>
+          <p class="valor">#d3ecc9</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-tinta)"></div>
+          <p class="nombre">ok-tinta</p>
+          <p class="valor">#1e5a17</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-barra)"></div>
+          <p class="nombre">ok-barra</p>
+          <p class="valor">#4f9a3a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-fondo)"></div>
+          <p class="nombre">aviso-fondo</p>
+          <p class="valor">#f8e3a6</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-tinta)"></div>
+          <p class="nombre">aviso-tinta</p>
+          <p class="valor">#6d4a00</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-barra)"></div>
+          <p class="nombre">aviso-barra</p>
+          <p class="valor">#d29a12</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-fondo)"></div>
+          <p class="nombre">mal-fondo</p>
+          <p class="valor">#f8d2cc</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-tinta)"></div>
+          <p class="nombre">mal-tinta</p>
+          <p class="valor">#8e1f15</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-barra)"></div>
+          <p class="nombre">mal-barra</p>
+          <p class="valor">#d2483b</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--cero-fondo)"></div>
+          <p class="nombre">cero-fondo</p>
+          <p class="valor">#ebe8df</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--cero-tinta)"></div>
+          <p class="nombre">cero-tinta</p>
+          <p class="valor">#676961</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--positivo)"></div>
+          <p class="nombre">positivo</p>
+          <p class="valor">#1f6b2a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--negativo)"></div>
+          <p class="nombre">negativo</p>
+          <p class="valor">#b42f23</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-1)"></div>
+          <p class="nombre">serie-1</p>
+          <p class="valor">#2a78d6</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-2)"></div>
+          <p class="nombre">serie-2</p>
+          <p class="valor">#eb6834</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-3)"></div>
+          <p class="nombre">serie-3</p>
+          <p class="valor">#1baf7a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-4)"></div>
+          <p class="nombre">serie-4</p>
+          <p class="valor">#eda100</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-5)"></div>
+          <p class="nombre">serie-5</p>
+          <p class="valor">#e87ba4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-6)"></div>
+          <p class="nombre">serie-6</p>
+          <p class="valor">#008300</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-7)"></div>
+          <p class="nombre">serie-7</p>
+          <p class="valor">#6250d6</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-8)"></div>
+          <p class="nombre">serie-8</p>
+          <p class="valor">#e34948</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-resto)"></div>
+          <p class="nombre">serie-resto</p>
+          <p class="valor">#b9b5a8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--rejilla)"></div>
+          <p class="nombre">rejilla</p>
+          <p class="valor">#e6e2d7</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--eje)"></div>
+          <p class="nombre">eje</p>
+          <p class="valor">#c9c3b4</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="panel oscuro">
+    <h2 class="rotulo">Colores · modo oscuro</h2>
+    <div class="rejilla">
+        <div class="color">
+          <div class="pastilla" style="background: var(--background)"></div>
+          <p class="nombre">background</p>
+          <p class="valor">#0e1210</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--foreground)"></div>
+          <p class="nombre">foreground</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card)"></div>
+          <p class="nombre">card</p>
+          <p class="valor">#151a17</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card-foreground)"></div>
+          <p class="nombre">card-foreground</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover)"></div>
+          <p class="nombre">popover</p>
+          <p class="valor">#29332d</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover-foreground)"></div>
+          <p class="nombre">popover-foreground</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary)"></div>
+          <p class="nombre">primary</p>
+          <p class="valor">#4cc3a0</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary-foreground)"></div>
+          <p class="nombre">primary-foreground</p>
+          <p class="valor">#06130e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary)"></div>
+          <p class="nombre">secondary</p>
+          <p class="valor">#1b221e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary-foreground)"></div>
+          <p class="nombre">secondary-foreground</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted)"></div>
+          <p class="nombre">muted</p>
+          <p class="valor">#1b221e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted-foreground)"></div>
+          <p class="nombre">muted-foreground</p>
+          <p class="valor">#848981</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent)"></div>
+          <p class="nombre">accent</p>
+          <p class="valor">#173a2f</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent-foreground)"></div>
+          <p class="nombre">accent-foreground</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--destructive)"></div>
+          <p class="nombre">destructive</p>
+          <p class="valor">#e2574a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--border)"></div>
+          <p class="nombre">border</p>
+          <p class="valor">#29312c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--input)"></div>
+          <p class="nombre">input</p>
+          <p class="valor">#3a443e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ring)"></div>
+          <p class="nombre">ring</p>
+          <p class="valor">#4cc3a0</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso)"></div>
+          <p class="nombre">aviso</p>
+          <p class="valor">#f2cf6c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-1)"></div>
+          <p class="nombre">chart-1</p>
+          <p class="valor">#3987e5</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-2)"></div>
+          <p class="nombre">chart-2</p>
+          <p class="valor">#d95926</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-3)"></div>
+          <p class="nombre">chart-3</p>
+          <p class="valor">#199e70</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-4)"></div>
+          <p class="nombre">chart-4</p>
+          <p class="valor">#c98500</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-5)"></div>
+          <p class="nombre">chart-5</p>
+          <p class="valor">#d55181</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--fondo)"></div>
+          <p class="nombre">fondo</p>
+          <p class="valor">#0e1210</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie)"></div>
+          <p class="nombre">superficie</p>
+          <p class="valor">#151a17</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie-2)"></div>
+          <p class="nombre">superficie-2</p>
+          <p class="valor">#1b221e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--superficie-3)"></div>
+          <p class="nombre">superficie-3</p>
+          <p class="valor">#242c27</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--borde)"></div>
+          <p class="nombre">borde</p>
+          <p class="valor">#29312c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--borde-fuerte)"></div>
+          <p class="nombre">borde-fuerte</p>
+          <p class="valor">#3a443e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ventana)"></div>
+          <p class="nombre">ventana</p>
+          <p class="valor">#29332d</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ventana-borde)"></div>
+          <p class="nombre">ventana-borde</p>
+          <p class="valor">#66756b</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tinta)"></div>
+          <p class="nombre">tinta</p>
+          <p class="valor">#ebeae4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tinta-2)"></div>
+          <p class="nombre">tinta-2</p>
+          <p class="valor">#b3b6ae</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--tenue)"></div>
+          <p class="nombre">tenue</p>
+          <p class="valor">#848981</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento)"></div>
+          <p class="nombre">acento</p>
+          <p class="valor">#4cc3a0</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento-tinta)"></div>
+          <p class="nombre">acento-tinta</p>
+          <p class="valor">#06130e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--acento-suave)"></div>
+          <p class="nombre">acento-suave</p>
+          <p class="valor">#173a2f</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-1-a)"></div>
+          <p class="nombre">boton-1-a</p>
+          <p class="valor">#4cc3a0</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-1-b)"></div>
+          <p class="nombre">boton-1-b</p>
+          <p class="valor">#34a888</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-2-a)"></div>
+          <p class="nombre">boton-2-a</p>
+          <p class="valor">#9ad474</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-2-b)"></div>
+          <p class="nombre">boton-2-b</p>
+          <p class="valor">#78b655</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-3-a)"></div>
+          <p class="nombre">boton-3-a</p>
+          <p class="valor">#b3beb7</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-3-b)"></div>
+          <p class="nombre">boton-3-b</p>
+          <p class="valor">#94a19a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-4-a)"></div>
+          <p class="nombre">boton-4-a</p>
+          <p class="valor">#e6e9e4</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-4-b)"></div>
+          <p class="nombre">boton-4-b</p>
+          <p class="valor">#c9cec8</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--boton-tinta)"></div>
+          <p class="nombre">boton-tinta</p>
+          <p class="valor">#06130e</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral)"></div>
+          <p class="nombre">lateral</p>
+          <p class="valor">#0a0e0c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-2)"></div>
+          <p class="nombre">lateral-2</p>
+          <p class="valor">#121815</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-tinta)"></div>
+          <p class="nombre">lateral-tinta</p>
+          <p class="valor">#e3e7e1</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-tenue)"></div>
+          <p class="nombre">lateral-tenue</p>
+          <p class="valor">#7f8f87</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--lateral-activo)"></div>
+          <p class="nombre">lateral-activo</p>
+          <p class="valor">#1b2a23</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-fondo)"></div>
+          <p class="nombre">ok-fondo</p>
+          <p class="valor">#1e3a1c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-tinta)"></div>
+          <p class="nombre">ok-tinta</p>
+          <p class="valor">#a6dd93</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ok-barra)"></div>
+          <p class="nombre">ok-barra</p>
+          <p class="valor">#5fae48</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-fondo)"></div>
+          <p class="nombre">aviso-fondo</p>
+          <p class="valor">#3d3110</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-tinta)"></div>
+          <p class="nombre">aviso-tinta</p>
+          <p class="valor">#f2cf6c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso-barra)"></div>
+          <p class="nombre">aviso-barra</p>
+          <p class="valor">#d7a21f</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-fondo)"></div>
+          <p class="nombre">mal-fondo</p>
+          <p class="valor">#4a1d18</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-tinta)"></div>
+          <p class="nombre">mal-tinta</p>
+          <p class="valor">#ffaea3</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--mal-barra)"></div>
+          <p class="nombre">mal-barra</p>
+          <p class="valor">#e2574a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--cero-fondo)"></div>
+          <p class="nombre">cero-fondo</p>
+          <p class="valor">#232a26</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--cero-tinta)"></div>
+          <p class="nombre">cero-tinta</p>
+          <p class="valor">#8d928a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--positivo)"></div>
+          <p class="nombre">positivo</p>
+          <p class="valor">#6cc46a</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--negativo)"></div>
+          <p class="nombre">negativo</p>
+          <p class="valor">#f07a6c</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-1)"></div>
+          <p class="nombre">serie-1</p>
+          <p class="valor">#3987e5</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-2)"></div>
+          <p class="nombre">serie-2</p>
+          <p class="valor">#d95926</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-3)"></div>
+          <p class="nombre">serie-3</p>
+          <p class="valor">#199e70</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-4)"></div>
+          <p class="nombre">serie-4</p>
+          <p class="valor">#c98500</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-5)"></div>
+          <p class="nombre">serie-5</p>
+          <p class="valor">#d55181</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-6)"></div>
+          <p class="nombre">serie-6</p>
+          <p class="valor">#4db54d</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-7)"></div>
+          <p class="nombre">serie-7</p>
+          <p class="valor">#9085e9</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-8)"></div>
+          <p class="nombre">serie-8</p>
+          <p class="valor">#e66767</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--serie-resto)"></div>
+          <p class="nombre">serie-resto</p>
+          <p class="valor">#4a504b</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--rejilla)"></div>
+          <p class="nombre">rejilla</p>
+          <p class="valor">#232a26</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--eje)"></div>
+          <p class="nombre">eje</p>
+          <p class="valor">#39423c</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Tipografía</h2>
+    <div class="tipos">
+      <div><p class="rotulo">Titulares</p><p class="titular" style="font-size: 40px">IBM Plex Sans</p><p class="tenue pequeno">"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif</p></div>
+      <div><p class="rotulo">Texto</p><p style="font-size: 32px">IBM Plex Sans</p><p class="tenue pequeno">"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif</p></div>
+      <div><p class="rotulo">Cifras</p><p class="cifra" style="font-size: 32px">0123456789</p><p class="tenue pequeno">"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif</p></div>
+    </div>
+    <div class="escala">
+      <p style="font-size: var(--texto-4xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-4xl · 3.052rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-3xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-3xl · 2.441rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-2xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-2xl · 1.953rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-xl · 1.563rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-lg)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-lg · 1.25rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-base)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-base · 1rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-sm)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-sm · 0.875rem</span>Presupuesto, cuentas y movimientos</p>
+      <p style="font-size: var(--texto-xs)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-xs · 0.75rem</span>Presupuesto, cuentas y movimientos</p>
+    </div>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Radios y espaciado</h2>
+    <div class="radios">
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 0.6)"></div><p class="valor">radius-sm</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 0.8)"></div><p class="valor">radius-md</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1)"></div><p class="valor">radius-lg</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1.4)"></div><p class="valor">radius-xl</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1.8)"></div><p class="valor">radius-2xl</p></div>
+    </div>
+    <div class="espacios">
+      <div><div class="espacio" style="width: var(--espacio-1)"></div><p class="valor">espacio-1</p></div>
+      <div><div class="espacio" style="width: var(--espacio-2)"></div><p class="valor">espacio-2</p></div>
+      <div><div class="espacio" style="width: var(--espacio-3)"></div><p class="valor">espacio-3</p></div>
+      <div><div class="espacio" style="width: var(--espacio-4)"></div><p class="valor">espacio-4</p></div>
+      <div><div class="espacio" style="width: var(--espacio-6)"></div><p class="valor">espacio-6</p></div>
+      <div><div class="espacio" style="width: var(--espacio-8)"></div><p class="valor">espacio-8</p></div>
+      <div><div class="espacio" style="width: var(--espacio-12)"></div><p class="valor">espacio-12</p></div>
+      <div><div class="espacio" style="width: var(--espacio-16)"></div><p class="valor">espacio-16</p></div>
+    </div>
+  </section>
+
+    <section class="panel claro">
+      <h3 class="rotulo">Piezas · modo claro</h3>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Altura (cm)</span><span class="entrada foco">170</span></label>
+      </div>
+      <div class="fila">
+        <div class="tarjeta">
+          <p class="rotulo">Gastos del mes</p>
+          <p class="titular grande">Supermercado</p>
+          <p><span class="cifra enorme">412,30</span> <span class="tenue">€</span></p>
+          <p class="tenue pequeno">Octubre · 38 € menos que en septiembre</p>
+        </div>
+        <div class="tarjeta">
+          <p class="aviso">⚠ Te quedan 87 € de presupuesto en esta categoría.</p>
+          <p class="pequeno">Información general, no sustituye a tu médico.</p>
+          <div class="fila"><span class="etiqueta">Variable</span><span class="etiqueta acento">Dentro del presupuesto</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel oscuro">
+      <h3 class="rotulo">Piezas · modo oscuro</h3>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Altura (cm)</span><span class="entrada foco">170</span></label>
+      </div>
+      <div class="fila">
+        <div class="tarjeta">
+          <p class="rotulo">Gastos del mes</p>
+          <p class="titular grande">Supermercado</p>
+          <p><span class="cifra enorme">412,30</span> <span class="tenue">€</span></p>
+          <p class="tenue pequeno">Octubre · 38 € menos que en septiembre</p>
+        </div>
+        <div class="tarjeta">
+          <p class="aviso">⚠ Te quedan 87 € de presupuesto en esta categoría.</p>
+          <p class="pequeno">Información general, no sustituye a tu médico.</p>
+          <div class="fila"><span class="etiqueta">Variable</span><span class="etiqueta acento">Dentro del presupuesto</span></div>
+        </div>
+      </div>
+    </section>
+</main>
+</body>
+</html>

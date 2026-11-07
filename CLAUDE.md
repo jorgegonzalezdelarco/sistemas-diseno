@@ -34,10 +34,11 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
 
 Jorge tiene licencia educativa de los dos. Son **copias para enseñarle muestras** (colores, tipografías, bordes, botones, tarjetas…) y que apruebe o descarte con un enlace. La fuente de verdad es este repo: lo aprobado se pasa a `tokens/`, y Figma y Canva se rehacen desde aquí, nunca al revés a mano.
 
-- **Figma:** archivo [«Sistemas de Diseño»](https://www.figma.com/design/Q5ZwnNBraMxKzGstXUJzyw), en el equipo «El equipo de j.gonzalezarco» (licencia educativa), con una página por tema. La muestra se pasa con `html_to_figma` desde `docs/muestras/<tema>.html`. Pendiente: los tokens como Variables (modo claro y oscuro). El conector no puede crear carpetas (proyectos) de Figma: si Jorge quiere una, la crea él y se mueve el archivo.
+- **Figma:** archivo [«Sistemas de Diseño»](https://www.figma.com/design/Q5ZwnNBraMxKzGstXUJzyw), en el equipo «El equipo de j.gonzalezarco» (licencia educativa), con una página por tema. Ojo: `html_to_figma` deja la muestra en la primera página; hay que moverla a la suya. La muestra se pasa con `html_to_figma` desde `docs/muestras/<tema>.html`. Pendiente: los tokens como Variables (modo claro y oscuro). El conector no puede crear carpetas (proyectos) de Figma: si Jorge quiere una, la crea él y se mueve el archivo.
 - **Canva:** carpeta [«Sistemas de Diseño»](https://www.canva.com/folder/FAHaO1XH_9M), por ahora vacía. El conector no deja importar páginas generadas por Claude a través de una dirección pública, así que las muestras de Canva se hacen con sus propias herramientas de diseño o a mano. El Brand Kit (logo, colores y fuentes) se edita a mano en Canva: el conector solo lo lee.
 
 ## ESTADO
 
 - `vida-de-jorge`: tema sacado de la web tal como está el 07/11/2026; da exactamente los mismos colores que su `globals.css`. Muestra en Figma, pendiente de que Jorge la apruebe. La web aún no importa el CSS del repo.
-- `finanzas` y `monetizacion-con-ia`: pendientes. Hay que leer sus estilos actuales, lo que pide permiso a Jorge si están fuera de las carpetas permitidas.
+- `finanzas`: sacado de `hogar/webs/finanzas/src/app/globals.css` el 07/11/2026; da exactamente sus 52 colores en claro y oscuro. Lleva además los nombres comunes (`background`, `primary`…) como referencias a los suyos (`fondo`, `acento`…). La web de finanzas aún usa sus variables propias. **Incoherencia en su origen:** en oscuro, `--tenue` vale `#848981` si sigue al sistema y `#7f847c` con el conmutador; aquí va el primero. Muestra en Figma, pendiente de aprobar.
+- `monetizacion-con-ia`: sin tema. El proyecto no tiene web ni marca: tendrá marcas nuevas, mejor sin cara, y sin la marca personal de Jorge. Cuando se elija una, cada marca será su propio tema.

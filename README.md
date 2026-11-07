@@ -15,7 +15,7 @@ Los colores usan los nombres de [shadcn/ui](https://ui.shadcn.com/) (`--primary`
 Instalación desde GitHub, con una versión fija:
 
 ```bash
-pnpm add github:jorgegonzalezdelarco/sistemas-diseno#v0.1.0
+pnpm add github:jorgegonzalezdelarco/sistemas-diseno#v0.2.0
 ```
 
-Temas: `vida-de-jorge`. En preparación: `finanzas` y `monetizacion-con-ia`.
+Temas: `vida-de-jorge` y `finanzas`. Monetización con IA tendrá uno por marca cuando las haya.
