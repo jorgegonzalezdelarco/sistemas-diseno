@@ -255,7 +255,7 @@ function indice() {
   const tarjeta = (p) => {
     const cl = completar(p.colores.claro), os = completar(p.colores.oscuro);
     const lado = (col, modo) => `
-      <div class="${modo}" style="background: var(--background); padding: 18px; display:flex; flex-direction:column; gap:10px; border-radius: 12px">
+      <div class="${modo}" style="min-width:0; overflow:hidden; background: var(--background); padding: 18px; display:flex; flex-direction:column; gap:10px; border-radius: 12px">
         <p class="titular" style="font-size: 28px">${p.nombre}</p>
         <p class="tenue pequeno">${p.fuentes.titulares} · ${p.fuentes.texto}</p>
         <div class="fila" style="gap:6px">${["primary", "accent", "chart-2", "foreground", "muted", "border"].map((n) => `<span style="width:26px;height:26px;border-radius:6px;background:var(--${n});border:1px solid var(--border)"></span>`).join("")}</div>
@@ -264,14 +264,14 @@ function indice() {
       </div>`;
     return `<div style="display:flex; flex-direction:column; gap:8px">
       <style>.p-${p.id} .claro { ${decl(cl)} } .p-${p.id} .oscuro { ${decl(os)} } .p-${p.id} { --fuente-titulares: "${p.fuentes.titulares}"; --fuente-texto: "${p.fuentes.texto}"; --fuente-cifras: "${p.fuentes.cifras}"; --radius: ${p.radio}; --radio-boton: ${p.boton}; } .p-${p.id} .titular { font-family: "${p.fuentes.titulares}"; font-weight: ${p.titular.peso}; letter-spacing: ${p.titular.tracking}; ${p.titular.mayusculas ? "text-transform: uppercase;" : ""} } .p-${p.id} .boton { font-family: "${p.fuentes.texto}"; } .p-${p.id} .cifra { font-family: "${p.fuentes.cifras}"; }</style>
-      <div class="p-${p.id}" style="display:grid; grid-template-columns:1fr 1fr; gap:8px">${lado(cl, "claro")}${lado(os, "oscuro")}</div>
+      <div class="p-${p.id}" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px">${lado(cl, "claro")}${lado(os, "oscuro")}</div>
       <p class="pie">Inspirada en ${p.inspiracion}</p></div>`;
   };
   const base = PROPUESTAS[0];
   return `<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><title>Propuestas de diseño</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${[...new Set(PROPUESTAS.flatMap((p) => Object.values(p.fuentes)))].map((f) => `family=${f.replaceAll(" ", "+")}:wght@300;400;600;700`).join("&")}&display=swap">
-<style>${estilos(base)} .indice { display:grid; grid-template-columns: 1fr 1fr; gap: 28px; } .claro, .oscuro { color: var(--foreground); } .tenue{color:var(--muted-foreground)}</style></head>
+<style>${estilos(base)} .indice { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; } .indice > div { min-width: 0; } .claro, .oscuro { color: var(--foreground); } .tenue{color:var(--muted-foreground)}</style></head>
 <body><main class="hoja">
   <section style="padding: 8px 0"><h1 style="font: 600 44px Inter, sans-serif; letter-spacing:-0.02em">Propuestas de sistema de diseño</h1>
   <p style="font: 16px Inter, sans-serif; color:#55524c; margin-top:8px">Diez direcciones para Vida de Jorge y Finanzas. Cada una tiene su página con pantallas de móvil, paleta con contraste medido, tipografía y piezas. Elige las que te gusten y lo que cambiarías.</p></section>
