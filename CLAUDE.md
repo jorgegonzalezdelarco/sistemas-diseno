@@ -16,7 +16,7 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
 ## QUÉ PROYECTOS LO USAN
 
 - **Sí:** Vida de Jorge (`vida-de-jorge`), finanzas (web de `hogar`, en Vercel) y Monetización con IA (`monetizacion-con-ia`).
-- **No:** pádel (`padel-balmis`), que se queda como está.
+- **No:** pádel (`padel-balmis`): web casi abandonada y poco usada (Jorge, 07/11/2026). No se toca.
 - **Aparte:** los módulos del instituto, DIW (`diw-semipresencial`), DWEC (`dwec`) y SI (`si-semi`). Son el trabajo de Jorge como profesor y funcionario y no tienen nada que ver con sus proyectos personales y emprendimientos. No usan este sistema salvo que Jorge lo pida.
 
 ## CÓMO ESTÁ HECHO
