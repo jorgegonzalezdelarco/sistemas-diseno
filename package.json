@@ -1,0 +1,15 @@
+{
+  "name": "sistemas-diseno",
+  "version": "0.1.0",
+  "description": "Tokens de diseño (DTCG) de los proyectos personales de Jorge: base común y un tema por proyecto.",
+  "type": "module",
+  "files": ["build", "tokens"],
+  "exports": {
+    "./build/*": "./build/*",
+    "./tokens/*": "./tokens/*"
+  },
+  "scripts": {
+    "construir": "node scripts/construir.mjs"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "$description": "Radio base. Los demás (sm, md, lg, xl…) salen de este en cada proyecto, como hace shadcn.",
+    "$value": { "value": 0.625, "unit": "rem" }
+  }
+}

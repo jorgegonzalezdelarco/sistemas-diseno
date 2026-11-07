@@ -1,0 +1,246 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Modo claro de Vida de Jorge: papel cálido, tinta azulada y un solo acento verde azulado.",
+    "aviso": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.52,
+          0.12,
+          65.0
+        ]
+      }
+    },
+    "background": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.97,
+          0.012,
+          85.0
+        ]
+      }
+    },
+    "foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.24,
+          0.02,
+          250.0
+        ]
+      }
+    },
+    "card": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.992,
+          0.005,
+          85.0
+        ]
+      }
+    },
+    "card-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.24,
+          0.02,
+          250.0
+        ]
+      }
+    },
+    "popover": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.992,
+          0.005,
+          85.0
+        ]
+      }
+    },
+    "popover-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.24,
+          0.02,
+          250.0
+        ]
+      }
+    },
+    "primary": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.43,
+          0.075,
+          195.0
+        ]
+      }
+    },
+    "primary-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.98,
+          0.01,
+          85.0
+        ]
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.93,
+          0.014,
+          85.0
+        ]
+      }
+    },
+    "secondary-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.3,
+          0.02,
+          250.0
+        ]
+      }
+    },
+    "muted": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.935,
+          0.012,
+          85.0
+        ]
+      }
+    },
+    "muted-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.47,
+          0.018,
+          250.0
+        ]
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.92,
+          0.022,
+          190.0
+        ]
+      }
+    },
+    "accent-foreground": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.3,
+          0.05,
+          195.0
+        ]
+      }
+    },
+    "destructive": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.577,
+          0.245,
+          27.325
+        ]
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.875,
+          0.014,
+          85.0
+        ]
+      }
+    },
+    "input": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.84,
+          0.014,
+          85.0
+        ]
+      }
+    },
+    "ring": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.43,
+          0.075,
+          195.0
+        ]
+      }
+    },
+    "chart-1": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.43,
+          0.075,
+          195.0
+        ]
+      }
+    },
+    "chart-2": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.556,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "chart-3": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.439,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "chart-4": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.371,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "chart-5": {
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.269,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

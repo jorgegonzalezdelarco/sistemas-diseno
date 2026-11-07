@@ -1,0 +1,105 @@
+/* Tema vida-de-jorge. Generado por scripts/construir.mjs desde tokens/: no editar a mano. */
+
+:root {
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-6: 1.5rem;
+  --espacio-8: 2rem;
+  --espacio-12: 3rem;
+  --espacio-16: 4rem;
+  --radius: 0.625rem;
+  --texto-xs: 0.75rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+  --texto-lg: 1.25rem;
+  --texto-xl: 1.563rem;
+  --texto-2xl: 1.953rem;
+  --texto-3xl: 2.441rem;
+  --texto-4xl: 3.052rem;
+  --fuente-titulares: Newsreader, Georgia, serif;
+  --fuente-texto: "IBM Plex Sans", system-ui, sans-serif;
+  --fuente-cifras: "IBM Plex Mono", ui-monospace, monospace;
+  --aviso: oklch(0.52 0.12 65);
+  --background: oklch(0.97 0.012 85);
+  --foreground: oklch(0.24 0.02 250);
+  --card: oklch(0.992 0.005 85);
+  --card-foreground: oklch(0.24 0.02 250);
+  --popover: oklch(0.992 0.005 85);
+  --popover-foreground: oklch(0.24 0.02 250);
+  --primary: oklch(0.43 0.075 195);
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.93 0.014 85);
+  --secondary-foreground: oklch(0.3 0.02 250);
+  --muted: oklch(0.935 0.012 85);
+  --muted-foreground: oklch(0.47 0.018 250);
+  --accent: oklch(0.92 0.022 190);
+  --accent-foreground: oklch(0.3 0.05 195);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.875 0.014 85);
+  --input: oklch(0.84 0.014 85);
+  --ring: oklch(0.43 0.075 195);
+  --chart-1: oklch(0.43 0.075 195);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --aviso: oklch(0.8 0.12 75);
+    --background: oklch(0.2 0.014 240);
+    --foreground: oklch(0.93 0.012 85);
+    --card: oklch(0.245 0.016 240);
+    --card-foreground: oklch(0.93 0.012 85);
+    --popover: oklch(0.245 0.016 240);
+    --popover-foreground: oklch(0.93 0.012 85);
+    --primary: oklch(0.79 0.09 185);
+    --primary-foreground: oklch(0.2 0.02 200);
+    --secondary: oklch(0.29 0.016 240);
+    --secondary-foreground: oklch(0.93 0.012 85);
+    --muted: oklch(0.28 0.016 240);
+    --muted-foreground: oklch(0.73 0.016 240);
+    --accent: oklch(0.31 0.03 200);
+    --accent-foreground: oklch(0.9 0.04 185);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0.01 85 / 13%);
+    --input: oklch(1 0.01 85 / 18%);
+    --ring: oklch(0.79 0.09 185);
+    --chart-1: oklch(0.79 0.09 185);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+  }
+}
+
+:root[data-theme="dark"] {
+  --aviso: oklch(0.8 0.12 75);
+  --background: oklch(0.2 0.014 240);
+  --foreground: oklch(0.93 0.012 85);
+  --card: oklch(0.245 0.016 240);
+  --card-foreground: oklch(0.93 0.012 85);
+  --popover: oklch(0.245 0.016 240);
+  --popover-foreground: oklch(0.93 0.012 85);
+  --primary: oklch(0.79 0.09 185);
+  --primary-foreground: oklch(0.2 0.02 200);
+  --secondary: oklch(0.29 0.016 240);
+  --secondary-foreground: oklch(0.93 0.012 85);
+  --muted: oklch(0.28 0.016 240);
+  --muted-foreground: oklch(0.73 0.016 240);
+  --accent: oklch(0.31 0.03 200);
+  --accent-foreground: oklch(0.9 0.04 185);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0.01 85 / 13%);
+  --input: oklch(1 0.01 85 / 18%);
+  --ring: oklch(0.79 0.09 185);
+  --chart-1: oklch(0.79 0.09 185);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+}
+

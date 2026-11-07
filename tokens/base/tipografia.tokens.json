@@ -1,0 +1,14 @@
+{
+  "texto": {
+    "$type": "dimension",
+    "$description": "Escala de tamaños de letra, con proporción de 1,25 desde 1 rem.",
+    "xs": { "$value": { "value": 0.75, "unit": "rem" } },
+    "sm": { "$value": { "value": 0.875, "unit": "rem" } },
+    "base": { "$value": { "value": 1, "unit": "rem" } },
+    "lg": { "$value": { "value": 1.25, "unit": "rem" } },
+    "xl": { "$value": { "value": 1.563, "unit": "rem" } },
+    "2xl": { "$value": { "value": 1.953, "unit": "rem" } },
+    "3xl": { "$value": { "value": 2.441, "unit": "rem" } },
+    "4xl": { "$value": { "value": 3.052, "unit": "rem" } }
+  }
+}

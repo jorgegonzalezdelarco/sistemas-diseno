@@ -1,0 +1,9 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "$description": "Cuaderno clínico: titulares con serifa, texto claro y cifras tabulares. Todas de Google Fonts, con licencia OFL.",
+    "titulares": { "$value": ["Newsreader", "Georgia", "serif"] },
+    "texto": { "$value": ["IBM Plex Sans", "system-ui", "sans-serif"] },
+    "cifras": { "$value": ["IBM Plex Mono", "ui-monospace", "monospace"] }
+  }
+}
