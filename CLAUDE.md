@@ -34,10 +34,10 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
 
 Jorge tiene licencia educativa de los dos. Son **copias para enseñarle muestras** (colores, tipografías, bordes, botones, tarjetas…) y que apruebe o descarte con un enlace. La fuente de verdad es este repo: lo aprobado se pasa a `tokens/`, y Figma y Canva se rehacen desde aquí, nunca al revés a mano.
 
-- **Figma:** un archivo «Sistemas de Diseño», con una página por tema, y los tokens como Variables (modo claro y oscuro).
-- **Canva:** una carpeta «Sistemas de Diseño» con un diseño de muestras por tema y, si hace falta, su Brand Kit (logo, colores y fuentes). El Brand Kit se edita a mano en Canva: el conector solo lo lee.
+- **Figma:** archivo [«Sistemas de Diseño»](https://www.figma.com/design/Q5ZwnNBraMxKzGstXUJzyw), en el equipo «El equipo de j.gonzalezarco» (licencia educativa), con una página por tema. La muestra se pasa con `html_to_figma` desde `docs/muestras/<tema>.html`. Pendiente: los tokens como Variables (modo claro y oscuro). El conector no puede crear carpetas (proyectos) de Figma: si Jorge quiere una, la crea él y se mueve el archivo.
+- **Canva:** carpeta [«Sistemas de Diseño»](https://www.canva.com/folder/FAHaO1XH_9M), por ahora vacía. El conector no deja importar páginas generadas por Claude a través de una dirección pública, así que las muestras de Canva se hacen con sus propias herramientas de diseño o a mano. El Brand Kit (logo, colores y fuentes) se edita a mano en Canva: el conector solo lo lee.
 
 ## ESTADO
 
-- `vida-de-jorge`: tema sacado de la web tal como está el 07/11/2026; da exactamente los mismos colores que su `globals.css`.
+- `vida-de-jorge`: tema sacado de la web tal como está el 07/11/2026; da exactamente los mismos colores que su `globals.css`. Muestra en Figma, pendiente de que Jorge la apruebe. La web aún no importa el CSS del repo.
 - `finanzas` y `monetizacion-con-ia`: pendientes. Hay que leer sus estilos actuales, lo que pide permiso a Jorge si están fuera de las carpetas permitidas.
