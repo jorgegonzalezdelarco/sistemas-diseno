@@ -45,7 +45,7 @@
     },
     "grande": {
       "$value": {
-        "value": 19,
+        "value": 21,
         "unit": "px"
       }
     }
