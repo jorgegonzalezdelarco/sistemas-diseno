@@ -1,0 +1,248 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Monocromo, modo claro. Inspirada en OpenAI.",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "card": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9765,
+          0.9765,
+          0.9765
+        ],
+        "hex": "#f9f9f9"
+      }
+    },
+    "popover": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9255,
+          0.9255,
+          0.9255
+        ],
+        "hex": "#ececec"
+      }
+    },
+    "muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9569,
+          0.9569,
+          0.9569
+        ],
+        "hex": "#f4f4f4"
+      }
+    },
+    "muted-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3647,
+          0.3647,
+          0.3647
+        ],
+        "hex": "#5d5d5d"
+      }
+    },
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "primary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9412,
+          0.9412,
+          0.9412
+        ],
+        "hex": "#f0f0f0"
+      }
+    },
+    "accent-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "destructive": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8784,
+          0.1804,
+          0.1647
+        ],
+        "hex": "#e02e2a"
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.898,
+          0.898,
+          0.898
+        ],
+        "hex": "#e5e5e5"
+      }
+    },
+    "input": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.851,
+          0.851,
+          0.851
+        ],
+        "hex": "#d9d9d9"
+      }
+    },
+    "ring": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "aviso": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5412,
+          0.3529,
+          0
+        ],
+        "hex": "#8a5a00"
+      }
+    },
+    "positivo": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0588,
+          0.5412,
+          0.4196
+        ],
+        "hex": "#0f8a6b"
+      }
+    },
+    "chart-1": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "chart-2": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0627,
+          0.6392,
+          0.498
+        ],
+        "hex": "#10a37f"
+      }
+    },
+    "card-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "popover-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    },
+    "secondary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "hex": "#0d0d0d"
+      }
+    }
+  }
+}

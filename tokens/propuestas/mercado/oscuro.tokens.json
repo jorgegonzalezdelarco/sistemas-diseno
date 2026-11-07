@@ -1,0 +1,248 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Mercado, modo oscuro. Inspirada en Amazon (tienda y Cloudscape, su sistema para AWS).",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0588,
+          0.0784,
+          0.102
+        ],
+        "hex": "#0f141a"
+      }
+    },
+    "foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9137,
+          0.9216,
+          0.9294
+        ],
+        "hex": "#e9ebed"
+      }
+    },
+    "card": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1059,
+          0.1373,
+          0.1765
+        ],
+        "hex": "#1b232d"
+      }
+    },
+    "popover": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1059,
+          0.1373,
+          0.1765
+        ],
+        "hex": "#1b232d"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1373,
+          0.1843,
+          0.2431
+        ],
+        "hex": "#232f3e"
+      }
+    },
+    "muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0863,
+          0.1137,
+          0.149
+        ],
+        "hex": "#161d26"
+      }
+    },
+    "muted-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6431,
+          0.6667,
+          0.702
+        ],
+        "hex": "#a4aab3"
+      }
+    },
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.6392,
+          0.102
+        ],
+        "hex": "#ffa31a"
+      }
+    },
+    "primary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0588,
+          0.0784,
+          0.102
+        ],
+        "hex": "#0f141a"
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.1647,
+          0.302
+        ],
+        "hex": "#0d2a4d"
+      }
+    },
+    "accent-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4588,
+          0.7176,
+          1
+        ],
+        "hex": "#75b7ff"
+      }
+    },
+    "destructive": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.4784,
+          0.4784
+        ],
+        "hex": "#ff7a7a"
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2549,
+          0.302,
+          0.3608
+        ],
+        "hex": "#414d5c"
+      }
+    },
+    "input": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3725,
+          0.4196,
+          0.4784
+        ],
+        "hex": "#5f6b7a"
+      }
+    },
+    "ring": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2588,
+          0.7059,
+          1
+        ],
+        "hex": "#42b4ff"
+      }
+    },
+    "aviso": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.8902,
+          0.2784
+        ],
+        "hex": "#ffe347"
+      }
+    },
+    "positivo": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1686,
+          0.7098,
+          0.2039
+        ],
+        "hex": "#2bb534"
+      }
+    },
+    "chart-1": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.2588,
+          0.7059,
+          1
+        ],
+        "hex": "#42b4ff"
+      }
+    },
+    "chart-2": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.6392,
+          0.102
+        ],
+        "hex": "#ffa31a"
+      }
+    },
+    "card-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9137,
+          0.9216,
+          0.9294
+        ],
+        "hex": "#e9ebed"
+      }
+    },
+    "popover-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9137,
+          0.9216,
+          0.9294
+        ],
+        "hex": "#e9ebed"
+      }
+    },
+    "secondary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9137,
+          0.9216,
+          0.9294
+        ],
+        "hex": "#e9ebed"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Inter",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Inter",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Inter",
+        "monospace"
+      ]
+    }
+  }
+}

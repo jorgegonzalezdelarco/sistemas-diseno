@@ -10,7 +10,8 @@
   },
   "scripts": {
     "construir": "node scripts/construir.mjs",
-    "muestras": "node scripts/muestras.mjs"
+    "muestras": "node scripts/muestras.mjs",
+    "propuestas": "node scripts/propuestas.mjs"
   },
   "license": "MIT"
 }

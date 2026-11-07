@@ -37,6 +37,13 @@ Jorge tiene licencia educativa de los dos. Son **copias para enseñarle muestras
 - **Figma:** archivo [«Sistemas de Diseño»](https://www.figma.com/design/Q5ZwnNBraMxKzGstXUJzyw), en el equipo «El equipo de j.gonzalezarco» (licencia educativa), con una página por tema. Ojo: `html_to_figma` deja la muestra en la primera página; hay que moverla a la suya. La muestra se pasa con `html_to_figma` desde `docs/muestras/<tema>.html`. Pendiente: los tokens como Variables (modo claro y oscuro). El conector no puede crear carpetas (proyectos) de Figma: si Jorge quiere una, la crea él y se mueve el archivo.
 - **Canva:** carpeta [«Sistemas de Diseño»](https://www.canva.com/folder/FAHaO1XH_9M), por ahora vacía. El conector no deja importar páginas generadas por Claude a través de una dirección pública, así que las muestras de Canva se hacen con sus propias herramientas de diseño o a mano. El Brand Kit (logo, colores y fuentes) se edita a mano en Canva: el conector solo lo lee.
 
+## PROPUESTAS PARA ELEGIR
+
+Pedidas por Jorge el 07/11/2026, porque las webs de salud y finanzas le parecen genéricas y con aspecto de hechas por IA. Son diez direcciones, cada una inspirada en el sistema público de una gran empresa (Apple, Nike, Amazon, Anthropic, OpenAI, Stripe, IBM, Google, Linear y GitHub). Llevan nombre y fuentes libres propios, y nunca la marca, el logo ni las fuentes de pago de esas empresas.
+
+- Datos: `scripts/propuestas-datos.mjs`. `node scripts/propuestas.mjs` escribe `tokens/propuestas/<id>/` y `docs/propuestas/<id>.html` (pantallas de móvil de salud y finanzas, paleta con contraste WCAG medido, tipografía y piezas), más `docs/propuestas/indice.html`.
+- En Figma, una página por propuesta y un índice. Cuando Jorge elija, la propuesta (o la mezcla) pasa a `tokens/temas/` del proyecto.
+
 ## ESTADO
 
 - `vida-de-jorge`: tema sacado de la web tal como está el 07/11/2026; da exactamente los mismos colores que su `globals.css`. Muestra en Figma, pendiente de que Jorge la apruebe. La web aún no importa el CSS del repo.

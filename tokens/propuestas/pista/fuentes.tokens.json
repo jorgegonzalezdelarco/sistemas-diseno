@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Anton",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Archivo",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Anton",
+        "monospace"
+      ]
+    }
+  }
+}

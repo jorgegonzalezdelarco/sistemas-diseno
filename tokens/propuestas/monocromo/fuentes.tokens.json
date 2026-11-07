@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Hanken Grotesk",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Hanken Grotesk",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Geist Mono",
+        "monospace"
+      ]
+    }
+  }
+}

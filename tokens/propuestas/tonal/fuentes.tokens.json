@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Roboto Flex",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Roboto Flex",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Roboto Mono",
+        "monospace"
+      ]
+    }
+  }
+}

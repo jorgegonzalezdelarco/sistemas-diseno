@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Plus Jakarta Sans",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Plus Jakarta Sans",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "JetBrains Mono",
+        "monospace"
+      ]
+    }
+  }
+}

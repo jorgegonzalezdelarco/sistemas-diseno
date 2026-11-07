@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Open Sans",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Open Sans",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Open Sans",
+        "monospace"
+      ]
+    }
+  }
+}

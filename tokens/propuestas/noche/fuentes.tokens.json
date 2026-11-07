@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Geist",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Geist",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Geist Mono",
+        "monospace"
+      ]
+    }
+  }
+}

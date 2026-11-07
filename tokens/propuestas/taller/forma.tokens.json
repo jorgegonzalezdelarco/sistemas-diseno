@@ -1,0 +1,33 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0.375,
+      "unit": "rem"
+    }
+  },
+  "radio-boton": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0.375,
+      "unit": "rem"
+    }
+  },
+  "titular": {
+    "$description": "Estilo de los titulares",
+    "peso": {
+      "$type": "fontWeight",
+      "$value": 600
+    },
+    "mayusculas": {
+      "$value": false
+    },
+    "tracking": {
+      "$type": "dimension",
+      "$value": {
+        "value": -0.015,
+        "unit": "em"
+      }
+    }
+  }
+}
