@@ -9,7 +9,8 @@
     "./tokens/*": "./tokens/*"
   },
   "scripts": {
-    "construir": "node scripts/construir.mjs"
+    "construir": "node scripts/construir.mjs",
+    "muestras": "node scripts/muestras.mjs"
   },
   "license": "MIT"
 }

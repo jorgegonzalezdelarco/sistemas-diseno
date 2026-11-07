@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muestras · vida-de-jorge</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz@6..72&display=swap">
+<style>
+  :root, .claro { --espacio-1: 0.25rem; --espacio-2: 0.5rem; --espacio-3: 0.75rem; --espacio-4: 1rem; --espacio-6: 1.5rem; --espacio-8: 2rem; --espacio-12: 3rem; --espacio-16: 4rem; --radius: 0.625rem; --texto-xs: 0.75rem; --texto-sm: 0.875rem; --texto-base: 1rem; --texto-lg: 1.25rem; --texto-xl: 1.563rem; --texto-2xl: 1.953rem; --texto-3xl: 2.441rem; --texto-4xl: 3.052rem; --fuente-titulares: Newsreader, Georgia, serif; --fuente-texto: "IBM Plex Sans", system-ui, sans-serif; --fuente-cifras: "IBM Plex Mono", ui-monospace, monospace; --aviso: oklch(0.52 0.12 65); --background: oklch(0.97 0.012 85); --foreground: oklch(0.24 0.02 250); --card: oklch(0.992 0.005 85); --card-foreground: oklch(0.24 0.02 250); --popover: oklch(0.992 0.005 85); --popover-foreground: oklch(0.24 0.02 250); --primary: oklch(0.43 0.075 195); --primary-foreground: oklch(0.98 0.01 85); --secondary: oklch(0.93 0.014 85); --secondary-foreground: oklch(0.3 0.02 250); --muted: oklch(0.935 0.012 85); --muted-foreground: oklch(0.47 0.018 250); --accent: oklch(0.92 0.022 190); --accent-foreground: oklch(0.3 0.05 195); --destructive: oklch(0.577 0.245 27.325); --border: oklch(0.875 0.014 85); --input: oklch(0.84 0.014 85); --ring: oklch(0.43 0.075 195); --chart-1: oklch(0.43 0.075 195); --chart-2: oklch(0.556 0 0); --chart-3: oklch(0.439 0 0); --chart-4: oklch(0.371 0 0); --chart-5: oklch(0.269 0 0); }
+  .oscuro { --espacio-1: 0.25rem; --espacio-2: 0.5rem; --espacio-3: 0.75rem; --espacio-4: 1rem; --espacio-6: 1.5rem; --espacio-8: 2rem; --espacio-12: 3rem; --espacio-16: 4rem; --radius: 0.625rem; --texto-xs: 0.75rem; --texto-sm: 0.875rem; --texto-base: 1rem; --texto-lg: 1.25rem; --texto-xl: 1.563rem; --texto-2xl: 1.953rem; --texto-3xl: 2.441rem; --texto-4xl: 3.052rem; --fuente-titulares: Newsreader, Georgia, serif; --fuente-texto: "IBM Plex Sans", system-ui, sans-serif; --fuente-cifras: "IBM Plex Mono", ui-monospace, monospace; --aviso: oklch(0.52 0.12 65); --background: oklch(0.97 0.012 85); --foreground: oklch(0.24 0.02 250); --card: oklch(0.992 0.005 85); --card-foreground: oklch(0.24 0.02 250); --popover: oklch(0.992 0.005 85); --popover-foreground: oklch(0.24 0.02 250); --primary: oklch(0.43 0.075 195); --primary-foreground: oklch(0.98 0.01 85); --secondary: oklch(0.93 0.014 85); --secondary-foreground: oklch(0.3 0.02 250); --muted: oklch(0.935 0.012 85); --muted-foreground: oklch(0.47 0.018 250); --accent: oklch(0.92 0.022 190); --accent-foreground: oklch(0.3 0.05 195); --destructive: oklch(0.577 0.245 27.325); --border: oklch(0.875 0.014 85); --input: oklch(0.84 0.014 85); --ring: oklch(0.43 0.075 195); --chart-1: oklch(0.43 0.075 195); --chart-2: oklch(0.556 0 0); --chart-3: oklch(0.439 0 0); --chart-4: oklch(0.371 0 0); --chart-5: oklch(0.269 0 0); --aviso: oklch(0.8 0.12 75); --background: oklch(0.2 0.014 240); --foreground: oklch(0.93 0.012 85); --card: oklch(0.245 0.016 240); --card-foreground: oklch(0.93 0.012 85); --popover: oklch(0.245 0.016 240); --popover-foreground: oklch(0.93 0.012 85); --primary: oklch(0.79 0.09 185); --primary-foreground: oklch(0.2 0.02 200); --secondary: oklch(0.29 0.016 240); --secondary-foreground: oklch(0.93 0.012 85); --muted: oklch(0.28 0.016 240); --muted-foreground: oklch(0.73 0.016 240); --accent: oklch(0.31 0.03 200); --accent-foreground: oklch(0.9 0.04 185); --destructive: oklch(0.704 0.191 22.216); --border: oklch(1 0.01 85 / 13%); --input: oklch(1 0.01 85 / 18%); --ring: oklch(0.79 0.09 185); --chart-1: oklch(0.79 0.09 185); --chart-2: oklch(0.556 0 0); --chart-3: oklch(0.439 0 0); --chart-4: oklch(0.371 0 0); --chart-5: oklch(0.269 0 0); }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: var(--fuente-texto); background: #e9e6e0; padding: 40px; }
+  .hoja { width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+  .panel { background: var(--background); color: var(--foreground); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+  .titular { font-family: var(--fuente-titulares); font-weight: 400; letter-spacing: -0.015em; }
+  .cifra { font-family: var(--fuente-cifras); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .rotulo { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 500; }
+  .tenue { color: var(--muted-foreground); }
+  .pequeno { font-size: 13px; }
+  .grande { font-size: 28px; }
+  .enorme { font-size: 56px; line-height: 1; }
+  .rejilla { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .color { display: flex; flex-direction: column; gap: 6px; }
+  .pastilla { height: 64px; border-radius: var(--radius); border: 1px solid var(--border); }
+  .nombre { font-size: 13px; font-weight: 600; }
+  .valor { font-family: var(--fuente-cifras); font-size: 11px; color: var(--muted-foreground); }
+  .fila { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  .boton { font: 500 14px var(--fuente-texto); height: 44px; padding: 0 20px; border-radius: var(--radius); border: 1px solid transparent; }
+  .primario { background: var(--primary); color: var(--primary-foreground); }
+  .secundario { background: var(--secondary); color: var(--secondary-foreground); }
+  .contorno { background: var(--card); color: var(--foreground); border-color: var(--border); }
+  .peligro { background: var(--destructive); color: white; }
+  .campo { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; width: 280px; }
+  .entrada { height: 44px; display: flex; align-items: center; padding: 0 12px; background: var(--card); border: 1px solid var(--input); border-radius: var(--radius); font-weight: 400; }
+  .foco { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 30%, transparent); }
+  .tarjeta { background: var(--card); color: var(--card-foreground); border: 1px solid var(--border); border-radius: calc(var(--radius) * 1.4); padding: 20px; width: 360px; display: flex; flex-direction: column; gap: 8px; }
+  .aviso { color: var(--aviso); font-size: 14px; font-weight: 500; }
+  .etiqueta { display: inline-block; align-self: flex-start; font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--muted); color: var(--muted-foreground); }
+  .etiqueta.acento { background: var(--accent); color: var(--accent-foreground); }
+  .tipos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .escala { display: flex; flex-direction: column; gap: 8px; }
+  .radios, .espacios { display: flex; gap: 24px; align-items: flex-end; }
+  .radio { width: 72px; height: 72px; background: var(--accent); border: 1px solid var(--border); }
+  .espacio { background: var(--primary); height: 16px; }
+</style>
+</head>
+<body>
+<main class="hoja">
+  <section class="panel claro">
+    <p class="rotulo">Sistemas de diseño · tema</p>
+    <h1 class="titular" style="font-size: 56px">vida-de-jorge</h1>
+    <p class="tenue">Generado desde los tokens del repo sistemas-diseno. Para aprobar o descartar: dile a Claude qué cambiarías.</p>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Colores · modo claro</h2>
+    <div class="rejilla">
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso)"></div>
+          <p class="nombre">aviso</p>
+          <p class="valor">oklch(0.52 0.12 65)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--background)"></div>
+          <p class="nombre">background</p>
+          <p class="valor">oklch(0.97 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--foreground)"></div>
+          <p class="nombre">foreground</p>
+          <p class="valor">oklch(0.24 0.02 250)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card)"></div>
+          <p class="nombre">card</p>
+          <p class="valor">oklch(0.992 0.005 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card-foreground)"></div>
+          <p class="nombre">card-foreground</p>
+          <p class="valor">oklch(0.24 0.02 250)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover)"></div>
+          <p class="nombre">popover</p>
+          <p class="valor">oklch(0.992 0.005 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover-foreground)"></div>
+          <p class="nombre">popover-foreground</p>
+          <p class="valor">oklch(0.24 0.02 250)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary)"></div>
+          <p class="nombre">primary</p>
+          <p class="valor">oklch(0.43 0.075 195)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary-foreground)"></div>
+          <p class="nombre">primary-foreground</p>
+          <p class="valor">oklch(0.98 0.01 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary)"></div>
+          <p class="nombre">secondary</p>
+          <p class="valor">oklch(0.93 0.014 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary-foreground)"></div>
+          <p class="nombre">secondary-foreground</p>
+          <p class="valor">oklch(0.3 0.02 250)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted)"></div>
+          <p class="nombre">muted</p>
+          <p class="valor">oklch(0.935 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted-foreground)"></div>
+          <p class="nombre">muted-foreground</p>
+          <p class="valor">oklch(0.47 0.018 250)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent)"></div>
+          <p class="nombre">accent</p>
+          <p class="valor">oklch(0.92 0.022 190)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent-foreground)"></div>
+          <p class="nombre">accent-foreground</p>
+          <p class="valor">oklch(0.3 0.05 195)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--destructive)"></div>
+          <p class="nombre">destructive</p>
+          <p class="valor">oklch(0.577 0.245 27.325)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--border)"></div>
+          <p class="nombre">border</p>
+          <p class="valor">oklch(0.875 0.014 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--input)"></div>
+          <p class="nombre">input</p>
+          <p class="valor">oklch(0.84 0.014 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ring)"></div>
+          <p class="nombre">ring</p>
+          <p class="valor">oklch(0.43 0.075 195)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-1)"></div>
+          <p class="nombre">chart-1</p>
+          <p class="valor">oklch(0.43 0.075 195)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-2)"></div>
+          <p class="nombre">chart-2</p>
+          <p class="valor">oklch(0.556 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-3)"></div>
+          <p class="nombre">chart-3</p>
+          <p class="valor">oklch(0.439 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-4)"></div>
+          <p class="nombre">chart-4</p>
+          <p class="valor">oklch(0.371 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-5)"></div>
+          <p class="nombre">chart-5</p>
+          <p class="valor">oklch(0.269 0 0)</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="panel oscuro">
+    <h2 class="rotulo">Colores · modo oscuro</h2>
+    <div class="rejilla">
+        <div class="color">
+          <div class="pastilla" style="background: var(--aviso)"></div>
+          <p class="nombre">aviso</p>
+          <p class="valor">oklch(0.8 0.12 75)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--background)"></div>
+          <p class="nombre">background</p>
+          <p class="valor">oklch(0.2 0.014 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--foreground)"></div>
+          <p class="nombre">foreground</p>
+          <p class="valor">oklch(0.93 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card)"></div>
+          <p class="nombre">card</p>
+          <p class="valor">oklch(0.245 0.016 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--card-foreground)"></div>
+          <p class="nombre">card-foreground</p>
+          <p class="valor">oklch(0.93 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover)"></div>
+          <p class="nombre">popover</p>
+          <p class="valor">oklch(0.245 0.016 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--popover-foreground)"></div>
+          <p class="nombre">popover-foreground</p>
+          <p class="valor">oklch(0.93 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary)"></div>
+          <p class="nombre">primary</p>
+          <p class="valor">oklch(0.79 0.09 185)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--primary-foreground)"></div>
+          <p class="nombre">primary-foreground</p>
+          <p class="valor">oklch(0.2 0.02 200)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary)"></div>
+          <p class="nombre">secondary</p>
+          <p class="valor">oklch(0.29 0.016 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--secondary-foreground)"></div>
+          <p class="nombre">secondary-foreground</p>
+          <p class="valor">oklch(0.93 0.012 85)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted)"></div>
+          <p class="nombre">muted</p>
+          <p class="valor">oklch(0.28 0.016 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--muted-foreground)"></div>
+          <p class="nombre">muted-foreground</p>
+          <p class="valor">oklch(0.73 0.016 240)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent)"></div>
+          <p class="nombre">accent</p>
+          <p class="valor">oklch(0.31 0.03 200)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--accent-foreground)"></div>
+          <p class="nombre">accent-foreground</p>
+          <p class="valor">oklch(0.9 0.04 185)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--destructive)"></div>
+          <p class="nombre">destructive</p>
+          <p class="valor">oklch(0.704 0.191 22.216)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--border)"></div>
+          <p class="nombre">border</p>
+          <p class="valor">oklch(1 0.01 85 / 13%)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--input)"></div>
+          <p class="nombre">input</p>
+          <p class="valor">oklch(1 0.01 85 / 18%)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--ring)"></div>
+          <p class="nombre">ring</p>
+          <p class="valor">oklch(0.79 0.09 185)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-1)"></div>
+          <p class="nombre">chart-1</p>
+          <p class="valor">oklch(0.79 0.09 185)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-2)"></div>
+          <p class="nombre">chart-2</p>
+          <p class="valor">oklch(0.556 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-3)"></div>
+          <p class="nombre">chart-3</p>
+          <p class="valor">oklch(0.439 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-4)"></div>
+          <p class="nombre">chart-4</p>
+          <p class="valor">oklch(0.371 0 0)</p>
+        </div>
+        <div class="color">
+          <div class="pastilla" style="background: var(--chart-5)"></div>
+          <p class="nombre">chart-5</p>
+          <p class="valor">oklch(0.269 0 0)</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Tipografía</h2>
+    <div class="tipos">
+      <div><p class="rotulo">Titulares</p><p class="titular" style="font-size: 40px">Newsreader</p><p class="tenue pequeno">Newsreader, Georgia, serif</p></div>
+      <div><p class="rotulo">Texto</p><p style="font-size: 32px">IBM Plex Sans</p><p class="tenue pequeno">"IBM Plex Sans", system-ui, sans-serif</p></div>
+      <div><p class="rotulo">Cifras</p><p class="cifra" style="font-size: 32px">0123456789</p><p class="tenue pequeno">"IBM Plex Mono", ui-monospace, monospace</p></div>
+    </div>
+    <div class="escala">
+      <p style="font-size: var(--texto-4xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-4xl · 3.052rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-3xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-3xl · 2.441rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-2xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-2xl · 1.953rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-xl)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-xl · 1.563rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-lg)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-lg · 1.25rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-base)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-base · 1rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-sm)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-sm · 0.875rem</span>Analíticas, suplementos y medidas</p>
+      <p style="font-size: var(--texto-xs)"><span class="cifra tenue" style="font-size: 12px; display: inline-block; width: 170px; white-space: nowrap">texto-xs · 0.75rem</span>Analíticas, suplementos y medidas</p>
+    </div>
+  </section>
+
+  <section class="panel claro">
+    <h2 class="rotulo">Radios y espaciado</h2>
+    <div class="radios">
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 0.6)"></div><p class="valor">radius-sm</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 0.8)"></div><p class="valor">radius-md</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1)"></div><p class="valor">radius-lg</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1.4)"></div><p class="valor">radius-xl</p></div>
+      <div><div class="radio" style="border-radius: calc(var(--radius) * 1.8)"></div><p class="valor">radius-2xl</p></div>
+    </div>
+    <div class="espacios">
+      <div><div class="espacio" style="width: var(--espacio-1)"></div><p class="valor">espacio-1</p></div>
+      <div><div class="espacio" style="width: var(--espacio-2)"></div><p class="valor">espacio-2</p></div>
+      <div><div class="espacio" style="width: var(--espacio-3)"></div><p class="valor">espacio-3</p></div>
+      <div><div class="espacio" style="width: var(--espacio-4)"></div><p class="valor">espacio-4</p></div>
+      <div><div class="espacio" style="width: var(--espacio-6)"></div><p class="valor">espacio-6</p></div>
+      <div><div class="espacio" style="width: var(--espacio-8)"></div><p class="valor">espacio-8</p></div>
+      <div><div class="espacio" style="width: var(--espacio-12)"></div><p class="valor">espacio-12</p></div>
+      <div><div class="espacio" style="width: var(--espacio-16)"></div><p class="valor">espacio-16</p></div>
+    </div>
+  </section>
+
+    <section class="panel claro">
+      <h3 class="rotulo">Piezas · modo claro</h3>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Altura (cm)</span><span class="entrada foco">170</span></label>
+      </div>
+      <div class="fila">
+        <div class="tarjeta">
+          <p class="rotulo">Lípidos</p>
+          <p class="titular grande">Colesterol LDL</p>
+          <p><span class="cifra enorme">104</span> <span class="tenue">mg/dL</span></p>
+          <p class="tenue pequeno">21 sep 2026 · −14 respecto al anterior</p>
+        </div>
+        <div class="tarjeta">
+          <p class="aviso">⚠ Fecha aproximada: el informe no la indica.</p>
+          <p class="pequeno">Información general, no sustituye a tu médico.</p>
+          <div class="fila"><span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Riesgo bajo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel oscuro">
+      <h3 class="rotulo">Piezas · modo oscuro</h3>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Altura (cm)</span><span class="entrada foco">170</span></label>
+      </div>
+      <div class="fila">
+        <div class="tarjeta">
+          <p class="rotulo">Lípidos</p>
+          <p class="titular grande">Colesterol LDL</p>
+          <p><span class="cifra enorme">104</span> <span class="tenue">mg/dL</span></p>
+          <p class="tenue pequeno">21 sep 2026 · −14 respecto al anterior</p>
+        </div>
+        <div class="tarjeta">
+          <p class="aviso">⚠ Fecha aproximada: el informe no la indica.</p>
+          <p class="pequeno">Información general, no sustituye a tu médico.</p>
+          <div class="fila"><span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Riesgo bajo</span></div>
+        </div>
+      </div>
+    </section>
+</main>
+</body>
+</html>

@@ -26,6 +26,7 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
   - `tokens/temas/<proyecto>/`: los colores en modo claro y oscuro (`claro.tokens.json` y `oscuro.tokens.json`, con los mismos nombres) y las fuentes.
 - **Colores en OKLCH** y con los nombres semánticos de shadcn (`primary`, `card`, `muted-foreground`…), porque los tres proyectos usan shadcn. El código de los proyectos usa siempre las variables, nunca colores sueltos.
 - **`node scripts/construir.mjs`** genera `build/<tema>.css`, sin dependencias. El formato es compatible con Style Dictionary, si algún día hace falta. `build/` se sube al repo para que los proyectos lo instalen desde GitHub (`github:jorgegonzalezdelarco/sistemas-diseno#vX.Y.Z`).
+- **Muestras:** `node scripts/muestras.mjs` genera `docs/muestras/<tema>.html`, una página autocontenida con colores, tipografía, radios, espaciado y piezas, en claro y oscuro. Es la que se pasa a Figma, y la que se mira para aprobar.
 - **Versiones:** una etiqueta `vX.Y.Z` por cambio que se publique. Un color nuevo sube la versión menor; quitar o renombrar un token, la mayor.
 - **Contraste:** antes de aprobar un color de texto, comprobar WCAG AA (4,5:1 en texto normal).
 
