@@ -1,0 +1,248 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Hucha, modo claro. Derivación para finanzas.",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9608,
+          0.9804,
+          0.9647
+        ],
+        "hex": "#f5faf6"
+      }
+    },
+    "foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0902,
+          0.1255,
+          0.1059
+        ],
+        "hex": "#17201b"
+      }
+    },
+    "card": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "popover": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8824,
+          0.9333,
+          0.898
+        ],
+        "hex": "#e1eee5"
+      }
+    },
+    "muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9255,
+          0.9569,
+          0.9333
+        ],
+        "hex": "#ecf4ee"
+      }
+    },
+    "muted-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3098,
+          0.3686,
+          0.3333
+        ],
+        "hex": "#4f5e55"
+      }
+    },
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1804,
+          0.4196,
+          0.3098
+        ],
+        "hex": "#2e6b4f"
+      }
+    },
+    "primary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8275,
+          0.9333,
+          0.8627
+        ],
+        "hex": "#d3eedc"
+      }
+    },
+    "accent-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1137,
+          0.302,
+          0.2157
+        ],
+        "hex": "#1d4d37"
+      }
+    },
+    "destructive": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7294,
+          0.102,
+          0.102
+        ],
+        "hex": "#ba1a1a"
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8392,
+          0.8902,
+          0.8549
+        ],
+        "hex": "#d6e3da"
+      }
+    },
+    "input": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5608,
+          0.6314,
+          0.5922
+        ],
+        "hex": "#8fa197"
+      }
+    },
+    "ring": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1804,
+          0.4196,
+          0.3098
+        ],
+        "hex": "#2e6b4f"
+      }
+    },
+    "aviso": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4902,
+          0.3412,
+          0
+        ],
+        "hex": "#7d5700"
+      }
+    },
+    "positivo": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1804,
+          0.4196,
+          0.3098
+        ],
+        "hex": "#2e6b4f"
+      }
+    },
+    "chart-1": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1804,
+          0.4196,
+          0.3098
+        ],
+        "hex": "#2e6b4f"
+      }
+    },
+    "chart-2": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7804,
+          0.4196,
+          0.2353
+        ],
+        "hex": "#c76b3c"
+      }
+    },
+    "card-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0902,
+          0.1255,
+          0.1059
+        ],
+        "hex": "#17201b"
+      }
+    },
+    "popover-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0902,
+          0.1255,
+          0.1059
+        ],
+        "hex": "#17201b"
+      }
+    },
+    "secondary-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0902,
+          0.1255,
+          0.1059
+        ],
+        "hex": "#17201b"
+      }
+    }
+  }
+}

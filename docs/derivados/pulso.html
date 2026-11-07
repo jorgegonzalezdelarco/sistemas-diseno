@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivación Pulso</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #e4e2dd; font-family: var(--fuente-texto); padding: 40px; }
+  .hoja { width: 1520px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .claro { --background: #f4f5f1; --foreground: #101110; --card: #ffffff; --popover: #ffffff; --secondary: #e4e6e0; --muted: #ecede8; --muted-foreground: #5a5d56; --primary: #101110; --primary-foreground: #f4f5f1; --accent: #d9f75c; --accent-foreground: #101110; --destructive: #cc1f1f; --border: #dfe1da; --input: #c4c7be; --ring: #101110; --aviso: #935700; --positivo: #1b7a3e; --chart-1: #101110; --chart-2: #7d9100; --card-foreground: #101110; --popover-foreground: #101110; --secondary-foreground: #101110; }
+  .oscuro { --background: #0a0b0a; --foreground: #f2f3ee; --card: #151714; --popover: #1d201c; --secondary: #1d201c; --muted: #151714; --muted-foreground: #9a9e94; --primary: #d9f75c; --primary-foreground: #0a0b0a; --accent: #2a3310; --accent-foreground: #d9f75c; --destructive: #ff6a5c; --border: #262924; --input: #383c35; --ring: #d9f75c; --aviso: #ffb547; --positivo: #5be08a; --chart-1: #d9f75c; --chart-2: #8f95ff; --card-foreground: #f2f3ee; --popover-foreground: #f2f3ee; --secondary-foreground: #f2f3ee; }
+  :root { --fuente-titulares: "Barlow Condensed", sans-serif; --fuente-texto: "Barlow", sans-serif; --fuente-cifras: "Barlow Condensed", monospace; --radius: 0.75rem; --radio-boton: 999px; }
+  .claro, .oscuro { color: var(--foreground); }
+  .panel { background: var(--background); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .doble { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .titular { font-family: var(--fuente-titulares); font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.05; }
+  .cifra { font-family: var(--fuente-cifras); font-variant-numeric: tabular-nums; }
+  .rotulo { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; }
+  .tenue { color: var(--muted-foreground); }
+  .pequeno { font-size: 13px; line-height: 1.45; }
+  .diminuto { font-size: 11px; }
+  .rejilla { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .color { display: flex; flex-direction: column; gap: 4px; }
+  .pastilla { height: 48px; border-radius: min(var(--radius), 12px); border: 1px solid var(--border); }
+  .nombre { font-size: 12px; font-weight: 600; }
+  .valor { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted-foreground); }
+  .contrastes { display: flex; flex-direction: column; gap: 6px; }
+  .par { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; font-size: 13px; }
+  .muestra-par { display: inline-flex; align-items: center; justify-content: center; height: 28px; border-radius: 6px; font-weight: 600; border: 1px solid var(--border); }
+  .fila { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .boton { font: 500 14px var(--fuente-texto); height: 42px; padding: 0 20px; border-radius: var(--radio-boton); border: 1px solid transparent; }
+  .primario { background: var(--primary); color: var(--primary-foreground); }
+  .secundario { background: var(--secondary); color: var(--secondary-foreground); }
+  .contorno { background: transparent; color: var(--foreground); border-color: var(--input); }
+  .peligro { background: var(--destructive); color: #ffffff; }
+  .ancho { width: 100%; margin-top: 8px; }
+  .campo { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; width: 260px; }
+  .entrada { height: 42px; display: flex; align-items: center; padding: 0 12px; background: var(--card); border: 1px solid var(--input); border-radius: min(var(--radius), 10px); font-weight: 400; }
+  .foco { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 28%, transparent); }
+  .etiqueta { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--muted); color: var(--muted-foreground); border: 1px solid var(--border); }
+  .etiqueta.acento { background: var(--accent); color: var(--accent-foreground); border-color: transparent; }
+  .aviso-et { color: var(--aviso); }
+  .tipos { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; align-items: end; }
+  .cabecera { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+  .ideas { display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.4; }
+  .moviles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; justify-items: center; }
+  .movil { width: 340px; height: 720px; background: var(--background); border-radius: 36px; border: 8px solid #1a1a1a; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .barra { height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid var(--border); }
+  .marca { font-size: 16px; }
+  .avatar { width: 26px; height: 26px; border-radius: 999px; background: var(--muted); border: 1px solid var(--border); }
+  .contenido { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+  .t-grande { font-size: 30px; }
+  .hero { display: flex; align-items: baseline; gap: 6px; }
+  .c-enorme { font-size: 50px; line-height: 1; letter-spacing: -0.02em; }
+  .tarjeta { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .lista { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+  .fila-lista { display: flex; justify-content: space-between; padding: 11px 14px; font-size: 13px; border-top: 1px solid var(--border); }
+  .fila-lista:first-child { border-top: 0; }
+  .presu { display: flex; flex-direction: column; gap: 5px; }
+  .presu-fila { display: flex; justify-content: space-between; }
+  .pista-barra { height: 8px; border-radius: 999px; background: var(--muted); overflow: hidden; }
+  .relleno { height: 100%; border-radius: 999px; }
+  .negativo { color: var(--destructive); }
+  .positivo-t { color: var(--positivo); }
+  .nav { height: 62px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); }
+  .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; color: var(--muted-foreground); }
+  .nav-item.activo { color: var(--primary); font-weight: 600; }
+  .icono { width: 18px; height: 18px; border-radius: 5px; border: 2px solid currentColor; }
+  .pie { font-size: 12px; color: #55524c; }
+  .fuerte { font-weight: 600; }
+  .chip { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .chip.ok { background: color-mix(in srgb, var(--positivo) 12%, transparent); color: color-mix(in srgb, var(--positivo) 78%, var(--foreground)); }
+  .chip.av { background: color-mix(in srgb, var(--aviso) 12%, transparent); color: color-mix(in srgb, var(--aviso) 78%, var(--foreground)); }
+  .chip.acento { background: var(--accent); color: var(--accent-foreground); }
+  .fila-estado { display: grid; grid-template-columns: 1fr auto 86px; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--border); }
+  .fila-estado .chip { justify-self: end; }
+  .con-punto { display: flex; gap: 10px; align-items: flex-start; line-height: 1.3; }
+  .punto { width: 10px; height: 10px; border-radius: 999px; margin-top: 4px; flex: none; }
+  .c-grande { font-size: 36px; line-height: 1; letter-spacing: -0.02em; }
+  .t-hero { font-size: 36px; line-height: 1.02; }
+  .t-medio { font-size: 18px; line-height: 1.2; }
+  .enlace { color: var(--accent-foreground); font-weight: 600; }
+  .contenido > .entrada { width: 100%; }
+  .destacada { background: color-mix(in srgb, var(--accent) 55%, var(--card)); }</style></head>
+<body><main class="hoja">
+  <section class="panel claro cabecera">
+    <div>
+      <p class="tenue pequeno">Derivación para Vida de Jorge · salud</p>
+      <h1 class="titular" style="font-size: 72px; margin-top: 10px">Pulso</h1>
+      <p style="font-size: 16px; line-height: 1.45; margin-top: 14px; max-width: 640px">Enfoque de rendimiento y longevidad, como un reloj deportivo: la cifra manda. Es la más enérgica de las tres; en oscuro luce más.</p>
+    </div>
+    <div class="ideas">
+      <p class="fuerte">Mezcla</p>
+      <p>· <span class="fuerte">Pista (Nike):</span> titulares altos en mayúsculas, cifras protagonistas y acento lima</p><p>· <span class="fuerte">Noche (Linear):</span> pensada primero para modo oscuro, bordes finos</p>
+      <p class="tenue pequeno" style="margin-top: 6px">Barlow Condensed · Barlow · Barlow Condensed</p>
+    </div>
+  </section>
+  <section class="moviles">
+  <div class="movil claro">
+    <div class="barra"><span class="marca titular">Vida de Jorge</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="tenue pequeno">Último análisis · 21 sep 2026</p>
+      <h2 class="titular t-grande">Inicio</h2>
+      <div class="tarjeta destacada">
+        <p class="tenue pequeno">Edad biológica (PhenoAge)</p>
+        <p class="hero"><span class="cifra c-enorme">41,2</span> <span class="tenue">años</span></p>
+        <p class="pequeno"><span class="chip ok">2,8 años menos que la real</span></p>
+      </div>
+      <div class="tarjeta">
+        <p class="pequeno fuerte">Para comentar con el médico</p>
+        <div class="fila-estado"><span class="pequeno">Colesterol LDL</span><span class="cifra pequeno">104 <span class="tenue">mg/dL</span></span><span class="chip av">Sobre 100</span></div><div class="fila-estado"><span class="pequeno">HbA1c</span><span class="cifra pequeno">5,3 <span class="tenue">%</span></span><span class="chip ok">En rango</span></div><div class="fila-estado"><span class="pequeno">Vitamina D</span><span class="cifra pequeno">31 <span class="tenue">ng/mL</span></span><span class="chip ok">En rango</span></div><div class="fila-estado"><span class="pequeno">Ferritina</span><span class="cifra pequeno">212 <span class="tenue">ng/mL</span></span><span class="chip av">Sobre 200</span></div>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>Suplementos de hoy</span><span class="cifra">4 / 6</span></div>
+        <div class="fila-lista"><span>Peso · 7 días</span><span class="cifra">78,4 <span class="tenue">kg</span></span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item activo"><span class="icono"></span>Inicio</span><span class="nav-item "><span class="icono"></span>Marcadores</span><span class="nav-item "><span class="icono"></span>Análisis</span><span class="nav-item "><span class="icono"></span>Cuerpo</span><span class="nav-item "><span class="icono"></span>Suplem.</span></nav>
+  </div>
+  <div class="movil oscuro">
+    <div class="barra"><span class="marca titular">Vida de Jorge</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="tenue pequeno">Último análisis · 21 sep 2026</p>
+      <h2 class="titular t-grande">Inicio</h2>
+      <div class="tarjeta destacada">
+        <p class="tenue pequeno">Edad biológica (PhenoAge)</p>
+        <p class="hero"><span class="cifra c-enorme">41,2</span> <span class="tenue">años</span></p>
+        <p class="pequeno"><span class="chip ok">2,8 años menos que la real</span></p>
+      </div>
+      <div class="tarjeta">
+        <p class="pequeno fuerte">Para comentar con el médico</p>
+        <div class="fila-estado"><span class="pequeno">Colesterol LDL</span><span class="cifra pequeno">104 <span class="tenue">mg/dL</span></span><span class="chip av">Sobre 100</span></div><div class="fila-estado"><span class="pequeno">HbA1c</span><span class="cifra pequeno">5,3 <span class="tenue">%</span></span><span class="chip ok">En rango</span></div><div class="fila-estado"><span class="pequeno">Vitamina D</span><span class="cifra pequeno">31 <span class="tenue">ng/mL</span></span><span class="chip ok">En rango</span></div><div class="fila-estado"><span class="pequeno">Ferritina</span><span class="cifra pequeno">212 <span class="tenue">ng/mL</span></span><span class="chip av">Sobre 200</span></div>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>Suplementos de hoy</span><span class="cifra">4 / 6</span></div>
+        <div class="fila-lista"><span>Peso · 7 días</span><span class="cifra">78,4 <span class="tenue">kg</span></span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item activo"><span class="icono"></span>Inicio</span><span class="nav-item "><span class="icono"></span>Marcadores</span><span class="nav-item "><span class="icono"></span>Análisis</span><span class="nav-item "><span class="icono"></span>Cuerpo</span><span class="nav-item "><span class="icono"></span>Suplem.</span></nav>
+  </div>
+  <div class="movil claro">
+    <div class="barra"><span class="marca titular">Vida de Jorge</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="rotulo">Lípidos</p>
+      <h2 class="titular t-grande">Colesterol LDL</h2>
+      <p class="hero"><span class="cifra c-enorme">104</span> <span class="tenue">mg/dL</span></p>
+      <p class="tenue pequeno">21 sep 2026 · −14 respecto al anterior</p>
+      <div class="tarjeta">
+        <p class="rotulo">Evolución</p>
+        <svg width="100%" height="120" viewBox="0 0 300 120" preserveAspectRatio="none" style="display:block"><line x1="0" x2="300" y1="67.2" y2="67.2" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="80.0" y2="80.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="104.0" y2="104.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="116.0" y2="116.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><polyline points="8.0,30.4 64.8,39.2 121.6,49.6 178.4,56.8 235.2,65.6 292.0,76.8" fill="none" stroke="var(--chart-1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="8.0" cy="30.4" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="64.8" cy="39.2" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="121.6" cy="49.6" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="178.4" cy="56.8" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="235.2" cy="65.6" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="292.0" cy="76.8" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/></svg>
+        <p class="tenue diminuto">Líneas: riesgo bajo 116 · moderado 100 · alto 70 · muy alto 55</p>
+      </div>
+      <div class="tarjeta">
+        <p class="rotulo">Qué mide</p>
+        <p class="pequeno">El colesterol que transportan las LDL. Es el principal objetivo para reducir el riesgo cardiovascular.</p>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>15 oct 2025</span><span class="cifra">118 <span class="tenue">mg/dL</span></span></div>
+        <div class="fila-lista"><span>2 sep 2024</span><span class="cifra">129 <span class="tenue">mg/dL</span></span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item "><span class="icono"></span>Inicio</span><span class="nav-item activo"><span class="icono"></span>Marcadores</span><span class="nav-item "><span class="icono"></span>Análisis</span><span class="nav-item "><span class="icono"></span>Cuerpo</span><span class="nav-item "><span class="icono"></span>Suplem.</span></nav>
+  </div>
+  <div class="movil oscuro">
+    <div class="barra"><span class="marca titular">Vida de Jorge</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="rotulo">Lípidos</p>
+      <h2 class="titular t-grande">Colesterol LDL</h2>
+      <p class="hero"><span class="cifra c-enorme">104</span> <span class="tenue">mg/dL</span></p>
+      <p class="tenue pequeno">21 sep 2026 · −14 respecto al anterior</p>
+      <div class="tarjeta">
+        <p class="rotulo">Evolución</p>
+        <svg width="100%" height="120" viewBox="0 0 300 120" preserveAspectRatio="none" style="display:block"><line x1="0" x2="300" y1="67.2" y2="67.2" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="80.0" y2="80.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="104.0" y2="104.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><line x1="0" x2="300" y1="116.0" y2="116.0" stroke="var(--muted-foreground)" stroke-opacity="0.5" stroke-dasharray="3 4"/><polyline points="8.0,30.4 64.8,39.2 121.6,49.6 178.4,56.8 235.2,65.6 292.0,76.8" fill="none" stroke="var(--chart-1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="8.0" cy="30.4" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="64.8" cy="39.2" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="121.6" cy="49.6" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="178.4" cy="56.8" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="235.2" cy="65.6" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/><circle cx="292.0" cy="76.8" r="3.5" fill="var(--chart-1)" stroke="var(--card)" stroke-width="2"/></svg>
+        <p class="tenue diminuto">Líneas: riesgo bajo 116 · moderado 100 · alto 70 · muy alto 55</p>
+      </div>
+      <div class="tarjeta">
+        <p class="rotulo">Qué mide</p>
+        <p class="pequeno">El colesterol que transportan las LDL. Es el principal objetivo para reducir el riesgo cardiovascular.</p>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>15 oct 2025</span><span class="cifra">118 <span class="tenue">mg/dL</span></span></div>
+        <div class="fila-lista"><span>2 sep 2024</span><span class="cifra">129 <span class="tenue">mg/dL</span></span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item "><span class="icono"></span>Inicio</span><span class="nav-item activo"><span class="icono"></span>Marcadores</span><span class="nav-item "><span class="icono"></span>Análisis</span><span class="nav-item "><span class="icono"></span>Cuerpo</span><span class="nav-item "><span class="icono"></span>Suplem.</span></nav>
+  </div></section>
+  <section class="doble">
+    <div class="panel claro">
+      <p class="rotulo">Colores · modo claro</p>
+      <div class="rejilla">
+        <div class="color"><div class="pastilla" style="background: var(--background)"></div><p class="nombre">background</p><p class="valor">#f4f5f1</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--foreground)"></div><p class="nombre">foreground</p><p class="valor">#101110</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--card)"></div><p class="nombre">card</p><p class="valor">#ffffff</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted)"></div><p class="nombre">muted</p><p class="valor">#ecede8</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted-foreground)"></div><p class="nombre">muted-foreground</p><p class="valor">#5a5d56</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--border)"></div><p class="nombre">border</p><p class="valor">#dfe1da</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary)"></div><p class="nombre">primary</p><p class="valor">#101110</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary-foreground)"></div><p class="nombre">primary-foreground</p><p class="valor">#f4f5f1</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent)"></div><p class="nombre">accent</p><p class="valor">#d9f75c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent-foreground)"></div><p class="nombre">accent-foreground</p><p class="valor">#101110</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--destructive)"></div><p class="nombre">destructive</p><p class="valor">#cc1f1f</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--aviso)"></div><p class="nombre">aviso</p><p class="valor">#935700</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--positivo)"></div><p class="nombre">positivo</p><p class="valor">#1b7a3e</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-1)"></div><p class="nombre">chart-1</p><p class="valor">#101110</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-2)"></div><p class="nombre">chart-2</p><p class="valor">#7d9100</p></div>
+      </div>
+      <div class="contrastes"><div class="par"><span class="muestra-par" style="background:#f4f5f1;color:#101110">Aa</span><span>Texto sobre fondo</span><span class="valor">17.3:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#f4f5f1;color:#5a5d56">Aa</span><span>Texto tenue sobre fondo</span><span class="valor">6.1:1 · AA</span></div><div class="par"><span class="muestra-par" style="background:#ffffff;color:#101110">Aa</span><span>Texto sobre tarjeta</span><span class="valor">18.9:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#101110;color:#f4f5f1">Aa</span><span>Botón principal</span><span class="valor">17.3:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#d9f75c;color:#101110">Aa</span><span>Acento</span><span class="valor">15.7:1 · AAA</span></div>
+      </div>
+    </div>
+    <div class="panel oscuro">
+      <p class="rotulo">Colores · modo oscuro</p>
+      <div class="rejilla">
+        <div class="color"><div class="pastilla" style="background: var(--background)"></div><p class="nombre">background</p><p class="valor">#0a0b0a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--foreground)"></div><p class="nombre">foreground</p><p class="valor">#f2f3ee</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--card)"></div><p class="nombre">card</p><p class="valor">#151714</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted)"></div><p class="nombre">muted</p><p class="valor">#151714</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted-foreground)"></div><p class="nombre">muted-foreground</p><p class="valor">#9a9e94</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--border)"></div><p class="nombre">border</p><p class="valor">#262924</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary)"></div><p class="nombre">primary</p><p class="valor">#d9f75c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary-foreground)"></div><p class="nombre">primary-foreground</p><p class="valor">#0a0b0a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent)"></div><p class="nombre">accent</p><p class="valor">#2a3310</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent-foreground)"></div><p class="nombre">accent-foreground</p><p class="valor">#d9f75c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--destructive)"></div><p class="nombre">destructive</p><p class="valor">#ff6a5c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--aviso)"></div><p class="nombre">aviso</p><p class="valor">#ffb547</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--positivo)"></div><p class="nombre">positivo</p><p class="valor">#5be08a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-1)"></div><p class="nombre">chart-1</p><p class="valor">#d9f75c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-2)"></div><p class="nombre">chart-2</p><p class="valor">#8f95ff</p></div>
+      </div>
+      <div class="contrastes"><div class="par"><span class="muestra-par" style="background:#0a0b0a;color:#f2f3ee">Aa</span><span>Texto sobre fondo</span><span class="valor">17.7:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#0a0b0a;color:#9a9e94">Aa</span><span>Texto tenue sobre fondo</span><span class="valor">7.2:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#151714;color:#f2f3ee">Aa</span><span>Texto sobre tarjeta</span><span class="valor">16.2:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#d9f75c;color:#0a0b0a">Aa</span><span>Botón principal</span><span class="valor">16.3:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#2a3310;color:#d9f75c">Aa</span><span>Acento</span><span class="valor">11.0:1 · AAA</span></div>
+      </div>
+    </div></section>
+  <section class="panel claro">
+    <p class="rotulo">Tipografía</p>
+    <div class="tipos">
+      <div><p class="rotulo">Titulares · Barlow Condensed</p><p class="titular" style="font-size: 52px; margin-top: 14px">Tus analíticas, claras</p></div>
+      <div><p class="rotulo">Texto · Barlow</p><p style="font-size: 17px; line-height: 1.5">La ferritina guarda el hierro del cuerpo. Mírala junto a la hemoglobina y comenta los cambios con tu médico.</p></div>
+      <div><p class="rotulo">Cifras · Barlow Condensed</p><p class="cifra" style="font-size: 44px; margin-top: 14px">41,2</p></div>
+    </div>
+  </section>
+  <section class="doble">
+    <div class="panel claro">
+      <p class="rotulo">Piezas · modo claro</p>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Importe</span><span class="entrada foco">42,50 €</span></label>
+      </div>
+      <div class="fila">
+        <span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Dentro del presupuesto</span><span class="etiqueta aviso-et">Fecha aproximada</span>
+      </div>
+    </div>
+    <div class="panel oscuro">
+      <p class="rotulo">Piezas · modo oscuro</p>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Importe</span><span class="entrada foco">42,50 €</span></label>
+      </div>
+      <div class="fila">
+        <span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Dentro del presupuesto</span><span class="etiqueta aviso-et">Fecha aproximada</span>
+      </div>
+    </div></section>
+  <p class="pie">Derivación propia para Vida de Jorge · salud, mezcla de Pista, Noche. Toma ideas de sistemas públicos, sin sus marcas, logos ni fuentes de pago. Datos inventados. Generada desde scripts/derivados-datos.mjs del repo sistemas-diseno.</p>
+</main></body></html>

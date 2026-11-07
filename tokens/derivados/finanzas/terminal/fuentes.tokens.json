@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Archivo",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Archivo",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "IBM Plex Mono",
+        "monospace"
+      ]
+    }
+  }
+}

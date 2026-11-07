@@ -10,7 +10,7 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
 
 - **Todo en español**, también las descripciones de los comandos. Los nombres técnicos se dejan como están.
 - **Si Jorge opina o pregunta «¿cómo lo ves?», responder sin ejecutar nada.**
-- **Git:** trabajo directo en `main`, con commit y push. Antes de cada push, `node scripts/construir.mjs` sin errores, y `build/` subido con los cambios. Sin force push.
+- **Git:** trabajo directo en `main`, con commit y push automáticos de Claude (permiso de Jorge, 07/11/2026). Antes de cada push, `node scripts/construir.mjs` sin errores, y `build/` subido con los cambios. Sin force push.
 - **Es público:** nada privado, ni datos, ni claves, ni nombres de clientes. Solo colores, tipografías, medidas y documentación.
 
 ## QUÉ PROYECTOS LO USAN
@@ -43,6 +43,16 @@ Pedidas por Jorge el 07/11/2026, porque las webs de salud y finanzas le parecen 
 
 - Datos: `scripts/propuestas-datos.mjs`. `node scripts/propuestas.mjs` escribe `tokens/propuestas/<id>/` y `docs/propuestas/<id>.html` (pantallas de móvil de salud y finanzas, paleta con contraste WCAG medido, tipografía y piezas), más `docs/propuestas/indice.html`.
 - En Figma, una página por propuesta y un índice. Cuando Jorge elija, la propuesta (o la mezcla) pasa a `tokens/temas/` del proyecto.
+
+## DERIVACIONES POR PROYECTO
+
+Pedidas por Jorge el 07/11/2026: tres versiones para cada proyecto (salud, finanzas y Monetización con IA), mezclando dos o tres de las diez propuestas. Cada derivación dice qué toma de cada una y por qué encaja con su proyecto.
+
+- Datos: `scripts/derivados-datos.mjs`. `node scripts/derivados.mjs` escribe `tokens/derivados/<proyecto>/<id>/`, `docs/derivados/<id>.html` (dos pantallas de su proyecto, en claro y oscuro) y `docs/derivados/indice.html`.
+- Piezas comunes de las dos páginas (contraste, tokens, pantallas de ejemplo): `scripts/pantallas.mjs`. Todas las pantallas usan datos inventados.
+- La generación avisa si algún par baja de AA: texto, texto tenue sobre fondo y tarjeta, botón principal y acento. Además se comprobaron a mano las etiquetas de estado y las tarjetas destacadas.
+- **Nada de datos de las hijas de Jorge** en este repo, que es público: ni nombres ni fotos.
+- En Figma van justo después del índice de propuestas: «◆ Derivaciones por proyecto» y una página por derivación.
 
 ## ESTADO
 

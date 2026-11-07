@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Newsreader",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Instrument Sans",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "DM Mono",
+        "monospace"
+      ]
+    }
+  }
+}

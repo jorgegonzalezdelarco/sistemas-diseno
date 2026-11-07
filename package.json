@@ -11,7 +11,8 @@
   "scripts": {
     "construir": "node scripts/construir.mjs",
     "muestras": "node scripts/muestras.mjs",
-    "propuestas": "node scripts/propuestas.mjs"
+    "propuestas": "node scripts/propuestas.mjs",
+    "derivados": "node scripts/derivados.mjs"
   },
   "license": "MIT"
 }

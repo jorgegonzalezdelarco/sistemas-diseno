@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Instrument Serif",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Manrope",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "DM Mono",
+        "monospace"
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Barlow Condensed",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Barlow",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Barlow Condensed",
+        "monospace"
+      ]
+    }
+  }
+}

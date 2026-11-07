@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Red Hat Display",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Red Hat Text",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Red Hat Mono",
+        "monospace"
+      ]
+    }
+  }
+}

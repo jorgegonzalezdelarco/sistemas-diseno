@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Archivo Black",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Archivo",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Archivo Black",
+        "monospace"
+      ]
+    }
+  }
+}

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivación Kiosco</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #e4e2dd; font-family: var(--fuente-texto); padding: 40px; }
+  .hoja { width: 1520px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .claro { --background: #fff7ee; --foreground: #1c1917; --card: #ffffff; --popover: #ffffff; --secondary: #fde9d4; --muted: #fbefe2; --muted-foreground: #685c52; --primary: #d61f4f; --primary-foreground: #ffffff; --accent: #ffe27a; --accent-foreground: #1c1917; --destructive: #b91c1c; --border: #f0dfcc; --input: #c9b6a3; --ring: #d61f4f; --aviso: #8a4c00; --positivo: #15803d; --chart-1: #d61f4f; --chart-2: #0e7fc0; --card-foreground: #1c1917; --popover-foreground: #1c1917; --secondary-foreground: #1c1917; }
+  .oscuro { --background: #17120f; --foreground: #fbf1e6; --card: #221a16; --popover: #2b221d; --secondary: #33281f; --muted: #221a16; --muted-foreground: #b8a898; --primary: #ff5c85; --primary-foreground: #1a0a10; --accent: #ffe27a; --accent-foreground: #1c1917; --destructive: #ff7a6b; --border: #3a2e26; --input: #57473b; --ring: #ff5c85; --aviso: #ffc15a; --positivo: #4ade80; --chart-1: #ff5c85; --chart-2: #4fb9f5; --card-foreground: #fbf1e6; --popover-foreground: #fbf1e6; --secondary-foreground: #fbf1e6; }
+  :root { --fuente-titulares: "Unbounded", sans-serif; --fuente-texto: "Nunito Sans", sans-serif; --fuente-cifras: "Unbounded", monospace; --radius: 1.25rem; --radio-boton: 999px; }
+  .claro, .oscuro { color: var(--foreground); }
+  .panel { background: var(--background); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .doble { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .titular { font-family: var(--fuente-titulares); font-weight: 700; letter-spacing: -0.02em;  line-height: 1.05; }
+  .cifra { font-family: var(--fuente-cifras); font-variant-numeric: tabular-nums; }
+  .rotulo { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; }
+  .tenue { color: var(--muted-foreground); }
+  .pequeno { font-size: 13px; line-height: 1.45; }
+  .diminuto { font-size: 11px; }
+  .rejilla { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .color { display: flex; flex-direction: column; gap: 4px; }
+  .pastilla { height: 48px; border-radius: min(var(--radius), 12px); border: 1px solid var(--border); }
+  .nombre { font-size: 12px; font-weight: 600; }
+  .valor { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted-foreground); }
+  .contrastes { display: flex; flex-direction: column; gap: 6px; }
+  .par { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; font-size: 13px; }
+  .muestra-par { display: inline-flex; align-items: center; justify-content: center; height: 28px; border-radius: 6px; font-weight: 600; border: 1px solid var(--border); }
+  .fila { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .boton { font: 500 14px var(--fuente-texto); height: 42px; padding: 0 20px; border-radius: var(--radio-boton); border: 1px solid transparent; }
+  .primario { background: var(--primary); color: var(--primary-foreground); }
+  .secundario { background: var(--secondary); color: var(--secondary-foreground); }
+  .contorno { background: transparent; color: var(--foreground); border-color: var(--input); }
+  .peligro { background: var(--destructive); color: #ffffff; }
+  .ancho { width: 100%; margin-top: 8px; }
+  .campo { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; width: 260px; }
+  .entrada { height: 42px; display: flex; align-items: center; padding: 0 12px; background: var(--card); border: 1px solid var(--input); border-radius: min(var(--radius), 10px); font-weight: 400; }
+  .foco { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 28%, transparent); }
+  .etiqueta { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--muted); color: var(--muted-foreground); border: 1px solid var(--border); }
+  .etiqueta.acento { background: var(--accent); color: var(--accent-foreground); border-color: transparent; }
+  .aviso-et { color: var(--aviso); }
+  .tipos { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; align-items: end; }
+  .cabecera { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+  .ideas { display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.4; }
+  .moviles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; justify-items: center; }
+  .movil { width: 340px; height: 720px; background: var(--background); border-radius: 36px; border: 8px solid #1a1a1a; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .barra { height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid var(--border); }
+  .marca { font-size: 16px; }
+  .avatar { width: 26px; height: 26px; border-radius: 999px; background: var(--muted); border: 1px solid var(--border); }
+  .contenido { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+  .t-grande { font-size: 30px; }
+  .hero { display: flex; align-items: baseline; gap: 6px; }
+  .c-enorme { font-size: 50px; line-height: 1; letter-spacing: -0.02em; }
+  .tarjeta { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .lista { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+  .fila-lista { display: flex; justify-content: space-between; padding: 11px 14px; font-size: 13px; border-top: 1px solid var(--border); }
+  .fila-lista:first-child { border-top: 0; }
+  .presu { display: flex; flex-direction: column; gap: 5px; }
+  .presu-fila { display: flex; justify-content: space-between; }
+  .pista-barra { height: 8px; border-radius: 999px; background: var(--muted); overflow: hidden; }
+  .relleno { height: 100%; border-radius: 999px; }
+  .negativo { color: var(--destructive); }
+  .positivo-t { color: var(--positivo); }
+  .nav { height: 62px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); }
+  .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 11px; color: var(--muted-foreground); }
+  .nav-item.activo { color: var(--primary); font-weight: 600; }
+  .icono { width: 18px; height: 18px; border-radius: 5px; border: 2px solid currentColor; }
+  .pie { font-size: 12px; color: #55524c; }
+  .fuerte { font-weight: 600; }
+  .chip { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .chip.ok { background: color-mix(in srgb, var(--positivo) 12%, transparent); color: color-mix(in srgb, var(--positivo) 78%, var(--foreground)); }
+  .chip.av { background: color-mix(in srgb, var(--aviso) 12%, transparent); color: color-mix(in srgb, var(--aviso) 78%, var(--foreground)); }
+  .chip.acento { background: var(--accent); color: var(--accent-foreground); }
+  .fila-estado { display: grid; grid-template-columns: 1fr auto 86px; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--border); }
+  .fila-estado .chip { justify-self: end; }
+  .con-punto { display: flex; gap: 10px; align-items: flex-start; line-height: 1.3; }
+  .punto { width: 10px; height: 10px; border-radius: 999px; margin-top: 4px; flex: none; }
+  .c-grande { font-size: 36px; line-height: 1; letter-spacing: -0.02em; }
+  .t-hero { font-size: 36px; line-height: 1.02; }
+  .t-medio { font-size: 18px; line-height: 1.2; }
+  .enlace { color: var(--accent-foreground); font-weight: 600; }
+  .contenido > .entrada { width: 100%; }
+  .destacada { background: color-mix(in srgb, var(--accent) 55%, var(--card)); }.t-hero { font-size: 27px; line-height: 1.12; } .t-grande { font-size: 26px; } .c-enorme { font-size: 40px; } .t-medio { font-size: 16px; } .oscuro .destacada { background: var(--card); border-color: var(--accent); } .oscuro .enlace { color: var(--accent); }</style></head>
+<body><main class="hoja">
+  <section class="panel claro cabecera">
+    <div>
+      <p class="tenue pequeno">Derivación para Monetización con IA</p>
+      <h1 class="titular" style="font-size: 72px; margin-top: 10px">Kiosco</h1>
+      <p style="font-size: 16px; line-height: 1.45; margin-top: 14px; max-width: 640px">Alegre y cercana, con color: pensada para productos y para crear contenido en familia sin que parezca una herramienta seria.</p>
+    </div>
+    <div class="ideas">
+      <p class="fuerte">Mezcla</p>
+      <p>· <span class="fuerte">Tonal (Google):</span> formas muy redondeadas y superficies de un mismo tono</p><p>· <span class="fuerte">Pista (Nike):</span> un acento de color fuerte</p><p>· <span class="fuerte">Mercado (Amazon):</span> práctica para tienda y producto</p>
+      <p class="tenue pequeno" style="margin-top: 6px">Unbounded · Nunito Sans · Unbounded</p>
+    </div>
+  </section>
+  <section class="moviles">
+  <div class="movil claro">
+    <div class="barra"><span class="marca titular">Bolsillo en Calma</span><span class="enlace pequeno">Entrar</span></div>
+    <div class="contenido">
+      <p><span class="chip acento">Guía gratis · 12 páginas</span></p>
+      <h2 class="titular t-hero">Ahorra 100 € al mes sin apps raras</h2>
+      <p class="pequeno tenue">Un correo cada domingo con una idea que se aplica en diez minutos.</p>
+      <span class="entrada">tu@correo.com</span>
+      <button class="boton primario ancho">Quiero la guía</button>
+      <p class="tenue diminuto">3.240 personas ya la leen · Sin spam, te das de baja con un clic</p>
+      <div class="tarjeta">
+        <p class="tenue diminuto">Lo más leído · 6 min</p>
+        <p class="titular t-medio">El método de los tres sobres, explicado</p>
+      </div>
+      <div class="tarjeta">
+        <p class="tenue diminuto">Nuevo · 4 min</p>
+        <p class="titular t-medio">Cinco gastos hormiga que no ves</p>
+      </div>
+    </div>
+  </div>
+  <div class="movil oscuro">
+    <div class="barra"><span class="marca titular">Bolsillo en Calma</span><span class="enlace pequeno">Entrar</span></div>
+    <div class="contenido">
+      <p><span class="chip acento">Guía gratis · 12 páginas</span></p>
+      <h2 class="titular t-hero">Ahorra 100 € al mes sin apps raras</h2>
+      <p class="pequeno tenue">Un correo cada domingo con una idea que se aplica en diez minutos.</p>
+      <span class="entrada">tu@correo.com</span>
+      <button class="boton primario ancho">Quiero la guía</button>
+      <p class="tenue diminuto">3.240 personas ya la leen · Sin spam, te das de baja con un clic</p>
+      <div class="tarjeta">
+        <p class="tenue diminuto">Lo más leído · 6 min</p>
+        <p class="titular t-medio">El método de los tres sobres, explicado</p>
+      </div>
+      <div class="tarjeta">
+        <p class="tenue diminuto">Nuevo · 4 min</p>
+        <p class="titular t-medio">Cinco gastos hormiga que no ves</p>
+      </div>
+    </div>
+  </div>
+  <div class="movil claro">
+    <div class="barra"><span class="marca titular">Bolsillo en Calma</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="tenue pequeno">Octubre 2026</p>
+      <h2 class="titular t-grande">Ingresos</h2>
+      <div class="tarjeta destacada">
+        <p class="hero"><span class="cifra c-enorme">412,80</span> <span class="tenue">€</span></p>
+        <p class="pequeno"><span class="chip ok">+18 % frente a septiembre</span></p>
+      </div>
+      <div class="tarjeta">
+        <p class="pequeno fuerte">Por fuente</p>
+        
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Afiliación</span><span class="cifra pequeno">214,30 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:100%; background: var(--chart-1)"></div></div></div>
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Tienda TikTok</span><span class="cifra pequeno">128,50 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:60%; background: var(--chart-2)"></div></div></div>
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Anuncios</span><span class="cifra pequeno">70,00 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:33%; background: var(--muted-foreground)"></div></div></div>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>Suscriptores</span><span class="cifra">3.240 <span class="positivo-t">+86</span></span></div>
+        <div class="fila-lista"><span>Apertura del correo</span><span class="cifra">48 %</span></div>
+        <div class="fila-lista"><span>Clics</span><span class="cifra">6,1 %</span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item activo"><span class="icono"></span>Panel</span><span class="nav-item "><span class="icono"></span>Contenido</span><span class="nav-item "><span class="icono"></span>Correo</span><span class="nav-item "><span class="icono"></span>Tienda</span><span class="nav-item "><span class="icono"></span>Ajustes</span></nav>
+  </div>
+  <div class="movil oscuro">
+    <div class="barra"><span class="marca titular">Bolsillo en Calma</span><span class="avatar"></span></div>
+    <div class="contenido">
+      <p class="tenue pequeno">Octubre 2026</p>
+      <h2 class="titular t-grande">Ingresos</h2>
+      <div class="tarjeta destacada">
+        <p class="hero"><span class="cifra c-enorme">412,80</span> <span class="tenue">€</span></p>
+        <p class="pequeno"><span class="chip ok">+18 % frente a septiembre</span></p>
+      </div>
+      <div class="tarjeta">
+        <p class="pequeno fuerte">Por fuente</p>
+        
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Afiliación</span><span class="cifra pequeno">214,30 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:100%; background: var(--chart-1)"></div></div></div>
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Tienda TikTok</span><span class="cifra pequeno">128,50 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:60%; background: var(--chart-2)"></div></div></div>
+        <div class="presu"><div class="presu-fila"><span class="pequeno">Anuncios</span><span class="cifra pequeno">70,00 €</span></div>
+        <div class="pista-barra"><div class="relleno" style="width:33%; background: var(--muted-foreground)"></div></div></div>
+      </div>
+      <div class="lista">
+        <div class="fila-lista"><span>Suscriptores</span><span class="cifra">3.240 <span class="positivo-t">+86</span></span></div>
+        <div class="fila-lista"><span>Apertura del correo</span><span class="cifra">48 %</span></div>
+        <div class="fila-lista"><span>Clics</span><span class="cifra">6,1 %</span></div>
+      </div>
+    </div>
+    
+  <nav class="nav"><span class="nav-item activo"><span class="icono"></span>Panel</span><span class="nav-item "><span class="icono"></span>Contenido</span><span class="nav-item "><span class="icono"></span>Correo</span><span class="nav-item "><span class="icono"></span>Tienda</span><span class="nav-item "><span class="icono"></span>Ajustes</span></nav>
+  </div></section>
+  <section class="doble">
+    <div class="panel claro">
+      <p class="rotulo">Colores · modo claro</p>
+      <div class="rejilla">
+        <div class="color"><div class="pastilla" style="background: var(--background)"></div><p class="nombre">background</p><p class="valor">#fff7ee</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--foreground)"></div><p class="nombre">foreground</p><p class="valor">#1c1917</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--card)"></div><p class="nombre">card</p><p class="valor">#ffffff</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted)"></div><p class="nombre">muted</p><p class="valor">#fbefe2</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted-foreground)"></div><p class="nombre">muted-foreground</p><p class="valor">#685c52</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--border)"></div><p class="nombre">border</p><p class="valor">#f0dfcc</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary)"></div><p class="nombre">primary</p><p class="valor">#d61f4f</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary-foreground)"></div><p class="nombre">primary-foreground</p><p class="valor">#ffffff</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent)"></div><p class="nombre">accent</p><p class="valor">#ffe27a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent-foreground)"></div><p class="nombre">accent-foreground</p><p class="valor">#1c1917</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--destructive)"></div><p class="nombre">destructive</p><p class="valor">#b91c1c</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--aviso)"></div><p class="nombre">aviso</p><p class="valor">#8a4c00</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--positivo)"></div><p class="nombre">positivo</p><p class="valor">#15803d</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-1)"></div><p class="nombre">chart-1</p><p class="valor">#d61f4f</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-2)"></div><p class="nombre">chart-2</p><p class="valor">#0e7fc0</p></div>
+      </div>
+      <div class="contrastes"><div class="par"><span class="muestra-par" style="background:#fff7ee;color:#1c1917">Aa</span><span>Texto sobre fondo</span><span class="valor">16.5:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#fff7ee;color:#685c52">Aa</span><span>Texto tenue sobre fondo</span><span class="valor">6.1:1 · AA</span></div><div class="par"><span class="muestra-par" style="background:#ffffff;color:#1c1917">Aa</span><span>Texto sobre tarjeta</span><span class="valor">17.5:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#d61f4f;color:#ffffff">Aa</span><span>Botón principal</span><span class="valor">5.0:1 · AA</span></div><div class="par"><span class="muestra-par" style="background:#ffe27a;color:#1c1917">Aa</span><span>Acento</span><span class="valor">13.7:1 · AAA</span></div>
+      </div>
+    </div>
+    <div class="panel oscuro">
+      <p class="rotulo">Colores · modo oscuro</p>
+      <div class="rejilla">
+        <div class="color"><div class="pastilla" style="background: var(--background)"></div><p class="nombre">background</p><p class="valor">#17120f</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--foreground)"></div><p class="nombre">foreground</p><p class="valor">#fbf1e6</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--card)"></div><p class="nombre">card</p><p class="valor">#221a16</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted)"></div><p class="nombre">muted</p><p class="valor">#221a16</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--muted-foreground)"></div><p class="nombre">muted-foreground</p><p class="valor">#b8a898</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--border)"></div><p class="nombre">border</p><p class="valor">#3a2e26</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary)"></div><p class="nombre">primary</p><p class="valor">#ff5c85</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--primary-foreground)"></div><p class="nombre">primary-foreground</p><p class="valor">#1a0a10</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent)"></div><p class="nombre">accent</p><p class="valor">#ffe27a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--accent-foreground)"></div><p class="nombre">accent-foreground</p><p class="valor">#1c1917</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--destructive)"></div><p class="nombre">destructive</p><p class="valor">#ff7a6b</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--aviso)"></div><p class="nombre">aviso</p><p class="valor">#ffc15a</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--positivo)"></div><p class="nombre">positivo</p><p class="valor">#4ade80</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-1)"></div><p class="nombre">chart-1</p><p class="valor">#ff5c85</p></div>
+        <div class="color"><div class="pastilla" style="background: var(--chart-2)"></div><p class="nombre">chart-2</p><p class="valor">#4fb9f5</p></div>
+      </div>
+      <div class="contrastes"><div class="par"><span class="muestra-par" style="background:#17120f;color:#fbf1e6">Aa</span><span>Texto sobre fondo</span><span class="valor">16.7:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#17120f;color:#b8a898">Aa</span><span>Texto tenue sobre fondo</span><span class="valor">8.0:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#221a16;color:#fbf1e6">Aa</span><span>Texto sobre tarjeta</span><span class="valor">15.3:1 · AAA</span></div><div class="par"><span class="muestra-par" style="background:#ff5c85;color:#1a0a10">Aa</span><span>Botón principal</span><span class="valor">6.5:1 · AA</span></div><div class="par"><span class="muestra-par" style="background:#ffe27a;color:#1c1917">Aa</span><span>Acento</span><span class="valor">13.7:1 · AAA</span></div>
+      </div>
+    </div></section>
+  <section class="panel claro">
+    <p class="rotulo">Tipografía</p>
+    <div class="tipos">
+      <div><p class="rotulo">Titulares · Unbounded</p><p class="titular" style="font-size: 52px; margin-top: 14px">Ahorra sin apps raras</p></div>
+      <div><p class="rotulo">Texto · Nunito Sans</p><p style="font-size: 17px; line-height: 1.5">Un correo cada domingo con una idea que se aplica en diez minutos. Sin spam.</p></div>
+      <div><p class="rotulo">Cifras · Unbounded</p><p class="cifra" style="font-size: 44px; margin-top: 14px">412,80</p></div>
+    </div>
+  </section>
+  <section class="doble">
+    <div class="panel claro">
+      <p class="rotulo">Piezas · modo claro</p>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Importe</span><span class="entrada foco">42,50 €</span></label>
+      </div>
+      <div class="fila">
+        <span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Dentro del presupuesto</span><span class="etiqueta aviso-et">Fecha aproximada</span>
+      </div>
+    </div>
+    <div class="panel oscuro">
+      <p class="rotulo">Piezas · modo oscuro</p>
+      <div class="fila">
+        <button class="boton primario">Guardar</button>
+        <button class="boton secundario">Cancelar</button>
+        <button class="boton contorno">Ver todo</button>
+        <button class="boton peligro">Borrar</button>
+      </div>
+      <div class="fila">
+        <label class="campo"><span>Correo</span><span class="entrada">nombre@ejemplo.com</span></label>
+        <label class="campo"><span>Importe</span><span class="entrada foco">42,50 €</span></label>
+      </div>
+      <div class="fila">
+        <span class="etiqueta">Guía clínica</span><span class="etiqueta acento">Dentro del presupuesto</span><span class="etiqueta aviso-et">Fecha aproximada</span>
+      </div>
+    </div></section>
+  <p class="pie">Derivación propia para Monetización con IA, mezcla de Tonal, Pista, Mercado. Toma ideas de sistemas públicos, sin sus marcas, logos ni fuentes de pago. Datos inventados. Generada desde scripts/derivados-datos.mjs del repo sistemas-diseno.</p>
+</main></body></html>

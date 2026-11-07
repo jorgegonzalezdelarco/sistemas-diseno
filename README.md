@@ -18,4 +18,4 @@ Instalación desde GitHub, con una versión fija:
 pnpm add github:jorgegonzalezdelarco/sistemas-diseno#v0.2.0
 ```
 
-Temas: `vida-de-jorge` y `finanzas`. Monetización con IA tendrá uno por marca cuando las haya.
+Temas: `vida-de-jorge` y `finanzas`. Propuestas para elegir: `docs/propuestas/` (diez direcciones) y `docs/derivados/` (tres mezclas por proyecto), que se generan con `npm run propuestas` y `npm run derivados`. Monetización con IA tendrá uno por marca cuando las haya.

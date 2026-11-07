@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Fraunces",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Public Sans",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "JetBrains Mono",
+        "monospace"
+      ]
+    }
+  }
+}

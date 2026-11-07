@@ -1,0 +1,23 @@
+{
+  "fuente": {
+    "$type": "fontFamily",
+    "titulares": {
+      "$value": [
+        "Figtree",
+        "sans-serif"
+      ]
+    },
+    "texto": {
+      "$value": [
+        "Figtree",
+        "sans-serif"
+      ]
+    },
+    "cifras": {
+      "$value": [
+        "Figtree",
+        "monospace"
+      ]
+    }
+  }
+}
