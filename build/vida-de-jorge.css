@@ -9,6 +9,16 @@
   --espacio-8: 2rem;
   --espacio-12: 3rem;
   --espacio-16: 4rem;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-ordenador: 64rem;
+  --breakpoint-grande: 128rem;
+  --letra-raiz-movil: 16px;
+  --letra-raiz-tablet: 16px;
+  --letra-raiz-ordenador: 17px;
+  --letra-raiz-grande: 18px;
+  --contenido-tablet: 48rem;
+  --contenido-ordenador: 72rem;
+  --contenido-grande: 84rem;
   --radius: 0.625rem;
   --texto-xs: 0.75rem;
   --texto-sm: 0.875rem;

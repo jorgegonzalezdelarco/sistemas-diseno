@@ -23,6 +23,7 @@ Con cada mensaje de Jorge, antes de nada: `sh ../vida-de-jorge/scripts/sincroniz
 
 - **Tokens DTCG**, versión estable 2025.10, en `tokens/`:
   - `tokens/base/`: lo común a todos, que casi nunca cambia: espaciado, escala de tipografía y radio.
+  - `tokens/base/pantallas.tokens.json`: los **cuatro tipos de pantalla** (decisión de Jorge, 07/11/2026): móvil (menos de 640 px), tablet (640-1023), ordenador (1024-2047) y ordenador grande (2048 o más). Fija los cortes (`--breakpoint-tablet`, `--breakpoint-ordenador`, `--breakpoint-grande`, que Tailwind 4 convierte en las variantes `tablet:`, `ordenador:` y `grande:`), la letra raíz de cada tipo (16, 16, 17 y 18 px) y el ancho máximo del contenido. En pantalla ancha se aprovecha el sitio con columnas, sin estirar los párrafos.
   - `tokens/temas/<proyecto>/`: los colores en modo claro y oscuro (`claro.tokens.json` y `oscuro.tokens.json`, con los mismos nombres) y las fuentes.
 - **Colores en OKLCH** y con los nombres semánticos de shadcn (`primary`, `card`, `muted-foreground`…), porque los tres proyectos usan shadcn. El código de los proyectos usa siempre las variables, nunca colores sueltos.
 - **`node scripts/construir.mjs`** genera `build/<tema>.css`, sin dependencias. El formato es compatible con Style Dictionary, si algún día hace falta. `build/` se sube al repo para que los proyectos lo instalen desde GitHub (`github:jorgegonzalezdelarco/sistemas-diseno#vX.Y.Z`).

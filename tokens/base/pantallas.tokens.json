@@ -1,0 +1,25 @@
+{
+  "$description": "Cuatro tipos de pantalla (decisión de Jorge, 07/11/2026): móvil (menos de 640 px), tablet (640-1023), ordenador (1024-2047: portátiles y monitores de 1080p) y ordenador grande (2048 o más: 1440p, iMac 5K y 4K). Los cortes van en rem del navegador (16 px), así que no cambian al subir la letra raíz.",
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Cortes con nombre propio. Con Tailwind 4 se copian tal cual a @theme y dan las variantes tablet:, ordenador: y grande:.",
+    "tablet": { "$value": { "value": 40, "unit": "rem" } },
+    "ordenador": { "$value": { "value": 64, "unit": "rem" } },
+    "grande": { "$value": { "value": 128, "unit": "rem" } }
+  },
+  "letra-raiz": {
+    "$type": "dimension",
+    "$description": "Tamaño de letra de <html> en cada tipo de pantalla. Todo lo que mide en rem (letra, márgenes, anchos) crece con él.",
+    "movil": { "$value": { "value": 16, "unit": "px" } },
+    "tablet": { "$value": { "value": 16, "unit": "px" } },
+    "ordenador": { "$value": { "value": 17, "unit": "px" } },
+    "grande": { "$value": { "value": 18, "unit": "px" } }
+  },
+  "contenido": {
+    "$type": "dimension",
+    "$description": "Ancho máximo del contenido principal. En pantallas anchas se aprovecha el sitio con columnas, no estirando el texto: un párrafo no pasa de unos 70 caracteres (max-w-prose).",
+    "tablet": { "$value": { "value": 48, "unit": "rem" } },
+    "ordenador": { "$value": { "value": 72, "unit": "rem" } },
+    "grande": { "$value": { "value": 84, "unit": "rem" } }
+  }
+}
